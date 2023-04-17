@@ -1,11 +1,9 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        tailwindcss = {},
-      },
-    },
+    opts = function(_, opts)
+      opts.servers.tailwindcss = {}
+    end,
   },
   {
     "hrsh7th/nvim-cmp",
