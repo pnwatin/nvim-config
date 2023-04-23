@@ -2,6 +2,20 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
-vim.opt.relativenumber = false
-vim.opt.clipboard:append("unnamedplus") -- use system clipboard as default register
-vim.opt.iskeyword:append("-") -- consider string-string as whole word
+local opt = vim.opt
+
+opt.number = true
+opt.relativenumber = true
+
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+
+opt.smartindent = true
+opt.wrap = false
+
+opt.scrolloff = 8
+
+opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+opt.iskeyword:append("-") -- consider string-string as whole word

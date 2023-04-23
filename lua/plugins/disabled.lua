@@ -11,7 +11,6 @@ return {
     "goolord/alpha-nvim",
     enabled = false,
   },
-
   {
     "ggandor/flit.nvim",
     enabled = false,
