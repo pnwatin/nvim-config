@@ -13,6 +13,8 @@ return {
         "typescript-language-server",
         "yaml-language-server",
         "rust-analyzer",
+        "prisma-language-server",
+        "rustfmt",
       },
     },
   },

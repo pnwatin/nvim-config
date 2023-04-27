@@ -17,5 +17,4 @@ opt.wrap = false
 
 opt.scrolloff = 8
 
-opt.clipboard:append("unnamedplus") -- use system clipboard as default register
 opt.iskeyword:append("-") -- consider string-string as whole word

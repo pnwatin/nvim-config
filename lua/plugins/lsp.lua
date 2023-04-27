@@ -19,6 +19,7 @@ return {
             },
           },
         },
+        prismals = {},
         tailwindcss = {},
         rust_analyzer = {
           settings = {
