@@ -1,6 +1,10 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
+    keys = {
+      { "<leader><space>", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+      { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+    },
 
     opts = function(_, opts)
       local actions = require("telescope.actions")
