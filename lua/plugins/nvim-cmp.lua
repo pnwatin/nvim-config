@@ -25,6 +25,8 @@ return {
           select = true,
         }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
       })
+
+      opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { name = "crates" }))
     end,
   },
 }

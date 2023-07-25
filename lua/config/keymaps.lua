@@ -3,10 +3,3 @@
 -- Add any additional keymaps here
 
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { noremap = true, silent = true, desc = "clear current search" })
-
-vim.keymap.set(
-  "n",
-  "<leader>ru",
-  ":TypescriptRemoveUnused<CR>",
-  { noremap = true, silent = true, desc = "remove unusued" }
-)
