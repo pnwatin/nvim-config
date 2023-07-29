@@ -7,6 +7,7 @@ return {
         rust_analyzer = {
           keys = {
             { "K", "<cmd>RustHoverActions<cr>", desc = "Hover Actions (Rust)" },
+            { "<leader>cR", "<cmd>RustCodeAction<cr>", desc = "Code Action (Rust)" },
           },
           settings = {
             ["rust-analyzer"] = {
@@ -82,6 +83,7 @@ return {
             },
           },
         },
+        sqlls = {},
         prismals = {},
         tailwindcss = {},
         emmet_ls = {

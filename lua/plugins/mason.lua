@@ -8,6 +8,7 @@ return {
         "stylua",
         "shfmt",
         "emmet-ls",
+        "sqlls",
         "lua-language-server",
         "tailwindcss-language-server",
         "typescript-language-server",
