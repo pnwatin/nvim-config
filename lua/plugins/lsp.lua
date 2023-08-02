@@ -3,7 +3,6 @@ return {
     "neovim/nvim-lspconfig",
     opts = function(_, opts)
       opts.servers = {
-
         sqlls = {},
         prismals = {},
         emmet_ls = {
@@ -20,9 +19,16 @@ return {
             "markdown",
           },
           init_options = {
-            html = {
+            -- html = {
+            --   options = {
+            --     ["bem.enabled"] = true,
+            --     ["jsx.enabled"] = true,
+            --   },
+            -- },
+            jsx = {
               options = {
                 ["bem.enabled"] = true,
+                ["jsx.enabled"] = true,
               },
             },
           },

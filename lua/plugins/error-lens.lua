@@ -5,6 +5,7 @@ return {
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },
+    enabled = false,
     opts = {},
   },
 }
