@@ -15,4 +15,4 @@ opt.wrap = false
 
 opt.scrolloff = 8
 
-opt.iskeyword:append("-") -- consider string-string as whole word
+opt.iskeyword:append("-")
