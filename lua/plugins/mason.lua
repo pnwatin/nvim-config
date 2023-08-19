@@ -6,6 +6,7 @@ return {
         "eslint-lsp",
         "prettierd",
         "stylua",
+        "rome",
         "shfmt",
         "emmet-ls",
         "sqlls",
