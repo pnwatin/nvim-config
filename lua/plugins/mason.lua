@@ -18,6 +18,7 @@ return {
         "codelldb",
         "prisma-language-server",
       },
+      ui = { border = "rounded" },
     },
   },
 }

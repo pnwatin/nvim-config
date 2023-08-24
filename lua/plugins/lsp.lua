@@ -2,6 +2,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = function(_, opts)
+      require("lspconfig.ui.windows").default_options.border = "rounded"
       opts.servers = {
         sqlls = {},
         prismals = {},
