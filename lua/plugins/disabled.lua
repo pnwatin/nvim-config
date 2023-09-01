@@ -7,4 +7,5 @@ return {
     "rcarriga/nvim-notify",
     enabled = false,
   },
+  { "RRethy/vim-illuminate", enabled = false },
 }
