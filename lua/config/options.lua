@@ -12,3 +12,6 @@ opt.softtabstop = 2
 opt.scrolloff = 8
 
 opt.iskeyword:append("-")
+
+opt.foldmethod = "indent"
+opt.foldenable = false
