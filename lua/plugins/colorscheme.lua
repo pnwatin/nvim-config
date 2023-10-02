@@ -9,7 +9,7 @@ return {
       -- flavour = "macchiato",
       flavour = "mocha",
       show_end_of_buffer = true,
-      -- transparent_background = true,
+      transparent_background = true,
     },
   },
   {
