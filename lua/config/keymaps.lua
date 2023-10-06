@@ -5,8 +5,6 @@ local Util = require("lazyvim.util")
 
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { noremap = true, silent = true, desc = "clear current search" })
 
-vim.keymap.del("n", "<leader><leader>")
-
 if Util.has("bufferline.nvim") then
   vim.keymap.set("n", "<S-tab>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
   vim.keymap.set("n", "<tab>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })

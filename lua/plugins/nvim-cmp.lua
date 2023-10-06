@@ -46,14 +46,14 @@ end
 return {
   {
     "hrsh7th/nvim-cmp",
+    dependencies = {
+      { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+    },
     opts = function(_, opts)
       local bordered = require("cmp.config.window").bordered
       opts.window = {
         completion = bordered("rounded"),
         documentation = bordered("rounded"),
-      }
-      opts.formatting = {
-        format = format,
       }
     end,
   },
