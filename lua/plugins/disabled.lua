@@ -8,6 +8,10 @@ return {
     enabled = false,
   },
   {
+    "rcarriga/nvim-notify",
+    enabled = false,
+  },
+  {
     "windwp/nvim-ts-autotag",
     enabled = false,
   },

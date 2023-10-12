@@ -3,7 +3,6 @@ return {
     "neovim/nvim-lspconfig",
     opts = function(_, opts)
       ---@diagnostic disable-next-line: no-unknown
-      require("lspconfig.ui.windows").default_options.border = "rounded"
       opts.servers = {
         sqlls = {},
         prismals = {},
