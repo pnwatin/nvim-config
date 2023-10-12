@@ -30,6 +30,7 @@ require("lazy").setup({
 
     -- editor
     { import = "lazyvim.plugins.extras.editor.leap" },
+    { import = "lazyvim.plugins.extras.editor.mini-files" },
     -- import/override with your plugins
     { import = "plugins" },
   },
