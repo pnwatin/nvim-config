@@ -27,6 +27,9 @@ require("lazy").setup({
 
     -- coding
     { import = "lazyvim.plugins.extras.coding.yanky" },
+
+    -- editor
+    { import = "lazyvim.plugins.extras.editor.leap" },
     -- import/override with your plugins
     { import = "plugins" },
   },
