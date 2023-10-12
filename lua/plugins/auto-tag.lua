@@ -1,15 +1,10 @@
 return {
   {
-    "windwp/nvim-ts-autotag",
-    opts = {},
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
+    "omelette-watin/nvim-ts-autotag",
+    name = "auto-tag",
+
     opts = {
-      autotag = {
-        enable = true,
-        enable_close_on_slash = false,
-      },
+      enenable_close_on_slash = false,
     },
   },
 }
