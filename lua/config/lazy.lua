@@ -21,10 +21,10 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.docker" },
 
     -- lsp
-    { import = "lazyvim.plugins.extras.lsp.none-ls" },
+    -- { import = "lazyvim.plugins.extras.lsp.none-ls" },
 
     -- formating
-    { import = "lazyvim.plugins.extras.formatting.black" },
+    -- { import = "lazyvim.plugins.extras.formatting.black" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
 
     -- linting
