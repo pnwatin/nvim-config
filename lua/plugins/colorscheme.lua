@@ -4,6 +4,7 @@ return {
     name = "catppuccin",
     opts = {
       show_end_of_buffer = true,
+      transparent_background = true,
     },
   },
   {
