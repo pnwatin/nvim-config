@@ -4,6 +4,11 @@
 
 local opt = vim.opt
 
+opt.guicursor = {
+  "i-ci:ver25-Cursor/lCursor-blinkwait1000-blinkon100-blinkoff100",
+  "r:hor50-Cursor/lCursor-blinkwait100-blinkon100-blinkoff100",
+}
+
 opt.number = true
 opt.relativenumber = true
 opt.numberwidth = 3
