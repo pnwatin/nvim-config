@@ -11,6 +11,7 @@ return {
           section_separators = "",
           component_separators = "",
           globalstatus = false,
+          disabled_filetypes = { statusline = { "neo-tree" } },
         },
         sections = {
           lualine_a = {
