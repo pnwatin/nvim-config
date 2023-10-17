@@ -4,9 +4,9 @@ return {
     opts = {
       ensure_installed = {
         "eslint-lsp",
-        "prettierd",
         "stylua",
         -- "rome",
+        "prettier",
         "shfmt",
         "emmet-ls",
         "sqlls",
