@@ -16,6 +16,7 @@ return {
             {
               "buffers",
               use_mode_colors = true,
+              show_filename_only = false,
               symbols = {
                 alternate_file = "",
               },
