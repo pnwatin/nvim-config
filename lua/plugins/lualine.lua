@@ -21,7 +21,6 @@ return {
               symbols = {
                 alternate_file = "",
               },
-              max_length = vim.o.columns * 2 / 5,
             },
           },
           lualine_b = {
