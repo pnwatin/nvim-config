@@ -5,10 +5,10 @@
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { noremap = true, silent = true, desc = "clear current search" })
 
 -- buffers
-vim.keymap.set("n", "<C-,>", ":bprev<enter>", { desc = "Prev buffer" })
-vim.keymap.set("n", "<C-.>", ":bnext<enter>", { desc = "Next buffer" })
-vim.keymap.set("n", "<C-x>", ":bdelete<enter>", { desc = "Delete buffer" })
-vim.keymap.set("n", "<leader><C-x>", ":%bd!<enter>", { desc = "Delete all buffers" })
+vim.keymap.set("n", "<C-,>", ":bprev<enter>", { silent = true, desc = "Prev buffer" })
+vim.keymap.set("n", "<C-.>", ":bnext<enter>", { silent = true, desc = "Next buffer" })
+vim.keymap.set("n", "<C-x>", ":bdelete<enter>", { silent = true, desc = "Delete buffer" })
+vim.keymap.set("n", "<leader><C-x>", ":%bd!<enter>", { silent = true, desc = "Delete all buffers" })
 
 -- resets
 vim.keymap.del("n", "<S-h>")
