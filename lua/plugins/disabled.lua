@@ -4,6 +4,10 @@ return {
     enabled = false,
   },
   {
+    "echasnovski/mini.indentscope",
+    enabled = false,
+  },
+  {
     "nvim-treesitter/nvim-treesitter-context",
     enabled = false,
   },
@@ -22,6 +26,18 @@ return {
   { "RRethy/vim-illuminate", enabled = false },
   {
     "echasnovski/mini.pairs",
+    enabled = false,
+  },
+  {
+    "folke/tokyonight.nvim",
+    enabled = false,
+  },
+  {
+    "nvim-pack/nvim-spectre",
+    enabled = false,
+  },
+  {
+    "folke/neoconf.nvim",
     enabled = false,
   },
 }
