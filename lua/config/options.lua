@@ -9,6 +9,15 @@ opt.guicursor = {
   "r:hor50-Cursor/lCursor-blinkwait100-blinkon100-blinkoff100",
 }
 
+opt.fillchars = {
+  foldopen = "",
+  foldclose = "",
+  fold = " ",
+  foldsep = " ",
+  diff = "╱",
+  eob = "~",
+}
+
 opt.number = true
 opt.relativenumber = true
 opt.numberwidth = 3
