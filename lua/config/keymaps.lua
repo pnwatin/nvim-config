@@ -2,19 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 --
-local toggleSystemDarkMode = function()
-  local cmd =
-    "!osascript -e 'tell app \"System Events\" to tell appearance preferences to set dark mode to not dark mode'"
-  vim.cmd("silent " .. cmd)
-  ToggleNvimTheme()
-end
-
-vim.keymap.set(
-  "n",
-  "<leader>ts",
-  toggleSystemDarkMode,
-  { noremap = true, silent = true, desc = "clear current search" }
-)
 
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { noremap = true, silent = true, desc = "clear current search" })
 
