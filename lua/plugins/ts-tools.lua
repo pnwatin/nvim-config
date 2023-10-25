@@ -9,8 +9,6 @@ return {
           "fix_all",
           "add_missing_imports",
           "remove_unused",
-          "remove_unused_imports",
-          "organize_imports",
         },
       },
     },
