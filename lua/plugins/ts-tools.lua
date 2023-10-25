@@ -22,6 +22,6 @@ return {
       { "<leader>ri", "<cmd>TSToolsRemoveUnusedImports<CR>", desc = "TS - Remove unused imports" },
     },
     lazy = true,
-    ft = { "typescript", "typescriptreact" },
+    ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
   },
 }
