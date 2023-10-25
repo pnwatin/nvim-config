@@ -8,7 +8,6 @@ return {
         { "{", "}", suround = true, multiline = true },
         { "[", "]", suround = true, multiline = true },
         { "(", ")", suround = true, multiline = true },
-        { "'", "'", multiline = true },
       },
     },
   },
