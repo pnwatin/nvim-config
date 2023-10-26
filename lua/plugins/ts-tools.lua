@@ -5,6 +5,10 @@ return {
     opts = {
       settings = {
         tsserver_file_preferences = { importModuleSpecifierPreference = "non-relative" },
+        tsserver_format_options = {
+          insertSpaceAfterOpeningAndBeforeClosingEmptyBraces = false,
+          insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = false,
+        },
         expose_as_code_action = {
           "fix_all",
           "add_missing_imports",
