@@ -24,9 +24,11 @@ opt.relativenumber = true
 opt.numberwidth = 3
 
 opt.softtabstop = 2
-opt.scrolloff = 8
+opt.scrolloff = 15
+opt.sidescrolloff = 15
 
 opt.iskeyword:append("-")
 
-opt.foldmethod = "indent"
+-- opt.foldmethod = "indent"
 opt.foldenable = false
+opt.foldnestmax = 1
