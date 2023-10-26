@@ -18,6 +18,7 @@ opt.fillchars = {
   eob = "~",
 }
 
+opt.conceallevel = 0
 opt.number = true
 opt.relativenumber = true
 opt.numberwidth = 3
