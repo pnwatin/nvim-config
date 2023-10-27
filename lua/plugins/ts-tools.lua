@@ -4,7 +4,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     opts = {
       settings = {
-        tsserver_file_preferences = { importModuleSpecifierPreference = "non-relative" },
+        tsserver_file_preferences = { importModuleSpecifierPreference = "non-relative", quotePreference = "single" },
         tsserver_format_options = {
           insertSpaceAfterOpeningAndBeforeClosingEmptyBraces = false,
           insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = false,
