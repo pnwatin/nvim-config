@@ -68,7 +68,6 @@ return {
               color = Util.ui.fg("Constant"),
             },
           },
-          lualine_z = { "" },
         },
       }
     end,
