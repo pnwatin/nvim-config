@@ -1,13 +1,17 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    opts = function(_, opt)
-      vim.list_extend(opt.servers, {
+    opts = {
+      servers = {
         emmet_language_server = {},
         html = {
+          filetypes = {
+            "html",
+            "htmldjango",
+          },
           format = {
             templating = true,
-            wrapLineLength = 120,
+            wrapLineLength = 80,
             wrapAttributes = "auto",
           },
           hover = {
@@ -15,7 +19,7 @@ return {
             references = true,
           },
         },
-      })
-    end,
+      },
+    },
   },
 }
