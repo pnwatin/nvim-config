@@ -9,14 +9,11 @@ return {
             "html",
             "htmldjango",
           },
-          format = {
-            templating = true,
-            wrapLineLength = 80,
-            wrapAttributes = "auto",
-          },
-          hover = {
-            documentation = true,
-            references = true,
+        },
+        htmx = {
+          filetypes = {
+            "htmldjango",
+            "html",
           },
         },
       },
