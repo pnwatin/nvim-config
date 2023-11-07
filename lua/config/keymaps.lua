@@ -4,6 +4,12 @@
 --
 
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { noremap = true, silent = true, desc = "clear current search" })
+vim.keymap.set(
+  "v",
+  "v/",
+  "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>",
+  { noremap = true, silent = true, desc = "search selected text" }
+)
 
 -- buffers
 vim.keymap.set("n", "<C-,>", ":bprev<enter>", { silent = true, desc = "Prev buffer" })
