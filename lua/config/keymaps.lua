@@ -14,7 +14,8 @@ vim.keymap.set(
 vim.keymap.set("n", "<C-,>", ":bprev<enter>", { silent = true, desc = "Prev buffer" })
 vim.keymap.set("n", "<C-.>", ":bnext<enter>", { silent = true, desc = "Next buffer" })
 vim.keymap.set("n", "<C-x>", ":bdelete<enter>", { silent = true, desc = "Delete buffer" })
-vim.keymap.set("n", "<leader><C-x>", ":%bd!<enter>", { silent = true, desc = "Delete all buffers" })
+vim.keymap.set("n", "<leader><C-x>", ":%bd|e#<enter>", { silent = true, desc = "Delete all other buffers" })
+vim.keymap.set("n", "<leader>X", ":%bd!<enter>", { silent = true, desc = "Delete all buffers" })
 
 -- resets
 vim.keymap.del("n", "<S-h>")
