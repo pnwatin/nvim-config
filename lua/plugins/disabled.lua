@@ -25,6 +25,10 @@ return {
     enabled = false,
   },
   {
+    "echasnovski/mini.bufremove",
+    enabled = false,
+  },
+  {
     "folke/tokyonight.nvim",
     enabled = false,
   },
