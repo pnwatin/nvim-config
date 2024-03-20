@@ -5,7 +5,10 @@ return {
     opts = {
       settings = {
         separate_diagnostic_server = false,
-        tsserver_file_preferences = { importModuleSpecifierPreference = "non-relative", quotePreference = "single" },
+        tsserver_file_preferences = {
+          importModuleSpecifierPreference = "non-relative",
+          quotePreference = "single",
+        },
         tsserver_format_options = {
           insertSpaceAfterOpeningAndBeforeClosingEmptyBraces = false,
           insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = false,
