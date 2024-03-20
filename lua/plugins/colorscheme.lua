@@ -11,6 +11,13 @@ return {
           crust = "#11111b",
         },
       },
+      integrations = {
+        native_lsp = {
+          inlay_hints = {
+            background = false,
+          },
+        },
+      },
     },
   },
   {
