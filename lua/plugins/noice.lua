@@ -6,6 +6,9 @@ return {
         lsp_doc_border = true,
         command_palette = false,
       },
+      messages = {
+        view = "split",
+      },
       cmdline = {
         view = "cmdline",
         format = {
