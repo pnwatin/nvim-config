@@ -2,17 +2,9 @@ return {
   {
     "folke/noice.nvim",
     opts = {
-      views = {
-        split = {
-          size = "30%",
-        },
-      },
       presets = {
         lsp_doc_border = true,
         command_palette = false,
-      },
-      messages = {
-        view = "split",
       },
       cmdline = {
         view = "cmdline",
