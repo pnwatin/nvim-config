@@ -16,6 +16,11 @@ return {
         sections = {
           lualine_a = {
             {
+              "mode",
+            },
+          },
+          lualine_b = {
+            {
               "buffers",
               use_mode_colors = true,
               symbols = {
@@ -23,7 +28,7 @@ return {
               },
             },
           },
-          lualine_b = {
+          lualine_c = {
             {
               "branch",
             },
@@ -36,7 +41,7 @@ return {
               },
             },
           },
-          lualine_c = {
+          lualine_d = {
             {
               "diagnostics",
               symbols = {
