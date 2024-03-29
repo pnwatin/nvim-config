@@ -21,15 +21,6 @@ return {
           },
           lualine_b = {
             {
-              "buffers",
-              use_mode_colors = true,
-              symbols = {
-                alternate_file = "",
-              },
-            },
-          },
-          lualine_c = {
-            {
               "branch",
             },
             {
@@ -41,7 +32,15 @@ return {
               },
             },
           },
-          lualine_d = {
+          lualine_c = {
+            {
+              "buffers",
+              use_mode_colors = true,
+              symbols = {
+                alternate_file = "",
+              },
+            },
+
             {
               "diagnostics",
               symbols = {
@@ -52,7 +51,8 @@ return {
               },
             },
           },
-          lualine_x = {
+          lualine_x = {},
+          lualine_y = {
             { "searchcount" },
             {
               function()
@@ -72,6 +72,10 @@ return {
               end,
               color = Util.ui.fg("Constant"),
             },
+          },
+          lualine_z = {
+            { "progress", separator = " ", padding = { left = 1, right = 0 } },
+            { "location", padding = { left = 0, right = 1 } },
           },
         },
       }
