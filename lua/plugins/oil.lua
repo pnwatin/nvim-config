@@ -1,7 +1,8 @@
 return {
   {
-    "stevearc/oil.nvim",
+    "omelette-watin/oil.nvim",
     opts = {
+      -- default_file_explorer = false,
       keymaps = {
         ["g?"] = "actions.show_help",
         ["<CR>"] = "actions.select",
@@ -23,6 +24,22 @@ return {
       use_default_keymaps = false,
       view_options = {
         show_hidden = true,
+      },
+      confirmation = {
+        confirm = {
+          label = "[Y]es",
+          keymaps = {
+            "y",
+            "Y",
+          },
+        },
+        cancel = {
+          label = "[N]o",
+          keymaps = {
+            "n",
+            "N",
+          },
+        },
       },
     },
     -- Optional dependencies
