@@ -25,6 +25,9 @@ return {
       view_options = {
         show_hidden = true,
       },
+      preview = {
+        min_width = 30,
+      },
       confirmation = {
         confirm = {
           label = "[Y]es",
@@ -42,7 +45,6 @@ return {
         },
       },
     },
-    -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 }
