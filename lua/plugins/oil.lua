@@ -3,12 +3,6 @@ return {
     "omelette-watin/oil.nvim",
     opts = {
       -- default_file_explorer = false,
-      columns = {
-        -- "permissions",
-        "mtime",
-        "size",
-        "icon",
-      },
       keymaps = {
         ["g?"] = "actions.show_help",
         ["<CR>"] = "actions.select",
