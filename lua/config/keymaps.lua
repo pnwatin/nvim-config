@@ -11,6 +11,8 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
+vim.keymap.set("n", "n", "nzz", { noremap = true })
+vim.keymap.set("n", "N", "Nzz", { noremap = true })
 
 -- buffers
 vim.keymap.set("n", "<C-,>", ":bprev<enter>", { silent = true, desc = "Prev buffer" })
