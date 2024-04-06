@@ -9,6 +9,8 @@ vim.keymap.set(
   "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>",
   { noremap = true, silent = true, desc = "search selected text" }
 )
+vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true })
+vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
 
 -- buffers
 vim.keymap.set("n", "<C-,>", ":bprev<enter>", { silent = true, desc = "Prev buffer" })
