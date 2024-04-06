@@ -3,16 +3,11 @@
 -- Add any additional keymaps here
 
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { noremap = true, silent = true, desc = "clear current search" })
-vim.keymap.set(
-  "v",
-  "v/",
-  "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>",
-  { noremap = true, silent = true, desc = "search selected text" }
-)
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { noremap = true })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { noremap = true })
 vim.keymap.set("n", "n", "nzz", { noremap = true })
 vim.keymap.set("n", "N", "Nzz", { noremap = true })
+vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- buffers
 vim.keymap.set("n", "<C-,>", ":bprev<enter>", { silent = true, desc = "Prev buffer" })
