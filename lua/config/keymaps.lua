@@ -17,7 +17,10 @@ vim.keymap.set("n", "<leader><C-x>", ":%bd|e#<enter>", { silent = true, desc = "
 vim.keymap.set("n", "<leader>X", ":%bd!<enter>", { silent = true, desc = "Delete all buffers" })
 
 -- oil
-vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { silent = true, desc = "Open oil (cwd)" })
+vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { silent = true, desc = "Open oil" })
+vim.keymap.set("n", "<leader>E", function()
+  require("oil.actions").open_cwd.callback()
+end, { silent = true, desc = "Open oil (cwd)" })
 
 -- resets
 vim.keymap.del("n", "<S-h>")
