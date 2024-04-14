@@ -7,7 +7,7 @@ return {
       color_overrides = {
         mocha = {
           base = "#11111b",
-          -- mantle = "#11111b",
+          mantle = "#11111b",
         },
       },
       integrations = {
