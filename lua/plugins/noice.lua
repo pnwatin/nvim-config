@@ -5,6 +5,7 @@ return {
       presets = {
         lsp_doc_border = true,
         command_palette = false,
+        bottom_search = true,
       },
       cmdline = {
         view = "cmdline",
