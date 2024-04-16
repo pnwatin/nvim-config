@@ -26,6 +26,7 @@ return {
       preview = {
         min_width = 30,
       },
+      skip_confirm_for_simple_edits = true,
       confirmation = {
         confirm = {
           label = "[Y]es",
