@@ -34,7 +34,6 @@ require("lazy").setup({
     -- editor
 
     -- util
-    { import = "lazyvim.plugins.extras.util.dot" },
 
     -- import/override with your plugins
     { import = "plugins" },
