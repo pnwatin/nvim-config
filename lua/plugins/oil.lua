@@ -1,6 +1,6 @@
 return {
   {
-    "omelette-watin/oil.nvim",
+    "stevearc/oil.nvim",
     opts = {
       -- default_file_explorer = false,
       keymaps = {
@@ -27,22 +27,6 @@ return {
         min_width = 30,
       },
       skip_confirm_for_simple_edits = true,
-      confirmation = {
-        confirm = {
-          label = "[Y]es",
-          keymaps = {
-            "y",
-            "Y",
-          },
-        },
-        cancel = {
-          label = "[N]o",
-          keymaps = {
-            "n",
-            "N",
-          },
-        },
-      },
     },
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
