@@ -3,13 +3,6 @@
 -- Add any additional keymaps here
 
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { noremap = true, silent = true, desc = "clear current search" })
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { silent = true })
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { silent = true })
-vim.keymap.set("n", "j", "jzz", { silent = true })
-vim.keymap.set("n", "k", "kzz", { silent = true })
-vim.keymap.set("n", "n", "nzz", { silent = true })
-vim.keymap.set("n", "N", "Nzz", { silent = true })
-vim.keymap.set("x", "<leader>p", [["_dP]])
 
 -- buffers
 vim.keymap.set("n", "<C-,>", ":bprev<enter>", { silent = true, desc = "Prev buffer" })
