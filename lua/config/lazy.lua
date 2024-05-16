@@ -30,11 +30,17 @@ require("lazy").setup({
 
     -- coding
     { import = "lazyvim.plugins.extras.coding.yanky" },
+    { import = "lazyvim.plugins.extras.coding.mini-surround" },
+    { import = "lazyvim.plugins.extras.coding.mini-ai" },
 
     -- editor
 
+    -- ui
+    { import = "lazyvim.plugins.extras.ui.mini-indentscope" },
+
     -- util
     { import = "lazyvim.plugins.extras.util.dot" },
+    { import = "lazyvim.plugins.extras.util.startuptime" },
 
     -- import/override with your plugins
     { import = "plugins" },
