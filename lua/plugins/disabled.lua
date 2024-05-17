@@ -15,13 +15,8 @@ return {
     "windwp/nvim-ts-autotag",
     enabled = false,
   },
-  { "RRethy/vim-illuminate", enabled = false },
   {
     "echasnovski/mini.pairs",
-    enabled = false,
-  },
-  {
-    "echasnovski/mini.bufremove",
     enabled = false,
   },
   {
