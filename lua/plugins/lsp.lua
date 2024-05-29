@@ -9,46 +9,56 @@ return {
         enabled = false,
       },
       servers = {
-        tsserver = {
+        vtsls = {
           keys = {
             {
-              "<leader>ru",
+              "gD",
               function()
-                vim.lsp.buf.code_action({
-                  apply = true,
-                  context = {
-                    only = { "source.removeUnused.ts" },
-                    diagnostics = {},
-                  },
-                })
+                require("vtsls").commands.goto_source_definition(0)
               end,
-              desc = "Remove Unused",
+              desc = "Goto Source Definition",
             },
             {
-              "<leader>ri",
+              "gR",
               function()
-                vim.lsp.buf.code_action({
-                  apply = true,
-                  context = {
-                    only = { "source.removeUnusedImports.ts" },
-                    diagnostics = {},
-                  },
-                })
+                require("vtsls").commands.file_references(0)
               end,
-              desc = "Remove Unused Imports",
+              desc = "File References",
             },
             {
-              "<leader>ai",
+              "<leader>co",
               function()
-                vim.lsp.buf.code_action({
-                  apply = true,
-                  context = {
-                    only = { "source.addMissingImports.ts" },
-                    diagnostics = {},
-                  },
-                })
+                require("vtsls").commands.organize_imports(0)
               end,
-              desc = "Add Missing Imports",
+              desc = "Organize Imports",
+            },
+            {
+              "<leader>cM",
+              function()
+                require("vtsls").commands.add_missing_imports(0)
+              end,
+              desc = "Add missing imports",
+            },
+            {
+              "<leader>cD",
+              function()
+                require("vtsls").commands.fix_all(0)
+              end,
+              desc = "Fix all diagnostics",
+            },
+            {
+              "<leader>cU",
+              function()
+                require("vtsls").commands.remove_unused(0)
+              end,
+              desc = "Remove unused",
+            },
+            {
+              "<leader>cu",
+              function()
+                require("vtsls").commands.remove_unused_imports(0)
+              end,
+              desc = "Remove unused imports",
             },
           },
         },
