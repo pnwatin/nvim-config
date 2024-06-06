@@ -59,7 +59,7 @@ return {
               desc = "Organize Imports",
             },
             {
-              "<leader>cM",
+              "<leader>cm",
               function()
                 require("vtsls").commands.add_missing_imports(0)
               end,
