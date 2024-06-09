@@ -10,81 +10,65 @@ return {
       },
       servers = {
         vtsls = {
-          settings = {
-            complete_function_calls = true,
-            vtsls = {
-              enableMoveToFileCodeAction = true,
-              autoUseWorkspaceTsdk = true,
-              experimental = {
-                completion = {
-                  enableServerSideFuzzyMatch = true,
-                },
-              },
-            },
-            typescript = {
-              updateImportsOnFileMove = { enabled = "always" },
-              suggest = {
-                completeFunctionCalls = true,
-              },
-              inlayHints = {
-                enumMemberValues = { enabled = true },
-                functionLikeReturnTypes = { enabled = true },
-                parameterNames = { enabled = "literals" },
-                parameterTypes = { enabled = true },
-                propertyDeclarationTypes = { enabled = true },
-                variableTypes = { enabled = false },
-              },
-            },
-          },
           keys = {
+            {
+              "<leader>cm",
+              LazyVim.lsp.action["source.addMissingImports.ts"],
+              desc = "Add missing imports",
+            },
+            {
+              "<leader>cM",
+              false,
+            },
             {
               "gD",
               function()
-                require("vtsls").commands.goto_source_definition(0)
+                local params = vim.lsp.util.make_position_params()
+                LazyVim.lsp.execute({
+                  command = "typescript.goToSourceDefinition",
+                  arguments = { params.textDocument.uri, params.position },
+                  open = true,
+                })
               end,
               desc = "Goto Source Definition",
             },
             {
               "gR",
               function()
-                require("vtsls").commands.file_references(0)
+                LazyVim.lsp.execute({
+                  command = "typescript.findAllFileReferences",
+                  arguments = { vim.uri_from_bufnr(0) },
+                  open = true,
+                })
               end,
               desc = "File References",
             },
             {
               "<leader>co",
-              function()
-                require("vtsls").commands.organize_imports(0)
-              end,
+              LazyVim.lsp.action["source.organizeImports"],
               desc = "Organize Imports",
             },
             {
-              "<leader>cm",
-              function()
-                require("vtsls").commands.add_missing_imports(0)
-              end,
-              desc = "Add missing imports",
-            },
-            {
-              "<leader>cD",
-              function()
-                require("vtsls").commands.fix_all(0)
-              end,
-              desc = "Fix all diagnostics",
+              "<leader>cu",
+              LazyVim.lsp.action["source.removeUnusedImports"],
+              desc = "Remove unused imports",
             },
             {
               "<leader>cU",
-              function()
-                require("vtsls").commands.remove_unused(0)
-              end,
+              LazyVim.lsp.action["source.removeUnused.ts"],
               desc = "Remove unused",
             },
             {
-              "<leader>cu",
+              "<leader>cD",
+              LazyVim.lsp.action["source.fixAll.ts"],
+              desc = "Fix all diagnostics",
+            },
+            {
+              "<leader>cV",
               function()
-                require("vtsls").commands.remove_unused_imports(0)
+                LazyVim.lsp.execute({ command = "typescript.selectTypeScriptVersion" })
               end,
-              desc = "Remove unused imports",
+              desc = "Select TS workspace version",
             },
           },
         },
