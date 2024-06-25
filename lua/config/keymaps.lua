@@ -17,6 +17,9 @@ vim.keymap.set("n", "<leader>E", function()
   require("oil.actions").open_cwd.callback()
 end, { silent = true, desc = "Open oil (cwd)" })
 
+-- terminal
+vim.keymap.set("n", "<leader><CR>", "<CMD>terminal<CR>")
+
 -- resets
 vim.keymap.del("n", "<S-h>")
 vim.keymap.del("n", "<S-l>")
@@ -28,6 +31,8 @@ vim.keymap.del("n", "<leader>ft")
 vim.keymap.del("n", "<leader>fT")
 vim.keymap.del("n", "<c-/>")
 vim.keymap.del("n", "<c-_>")
+vim.keymap.del("t", "<c-/>")
+vim.keymap.del("t", "<c-_>")
 vim.keymap.del("i", "<tab>")
 vim.keymap.del("i", "<S-Tab>")
 vim.keymap.del("n", "<Space><Tab>Þ")
