@@ -20,7 +20,7 @@ opt.relativenumber = true
 opt.numberwidth = 3
 
 opt.softtabstop = 2
-opt.scrolloff = 15
+opt.scrolloff = 99999
 opt.sidescrolloff = 15
 
 opt.iskeyword:append("-")
