@@ -24,10 +24,6 @@ return {
     enabled = false,
   },
   {
-    "nvim-pack/nvim-spectre",
-    enabled = false,
-  },
-  {
     "folke/neoconf.nvim",
     enabled = false,
   },
