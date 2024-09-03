@@ -18,4 +18,4 @@ vim.keymap.set("n", "<leader>E", function()
 end, { silent = true, desc = "Open oil (cwd)" })
 
 -- terminal
-vim.keymap.set("n", "<leader><CR>", "<CMD>terminal<CR>")
+vim.keymap.set("n", "<leader><CR>", "<CMD>terminal<CR>a")
