@@ -83,17 +83,26 @@ return {
           },
         },
         prismals = {},
-        emmet_language_server = {},
+        emmet_language_server = {
+          filetypes = {
+            "rust",
+          },
+        },
         html = {
           filetypes = {
             "html",
             "htmldjango",
+            "rust",
+          },
+          init_options = {
+            provideFormatter = false,
           },
         },
         htmx = {
           filetypes = {
             "htmldjango",
             "html",
+            "rust",
           },
         },
       },
