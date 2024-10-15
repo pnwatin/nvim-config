@@ -4,6 +4,13 @@
 
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { noremap = true, silent = true, desc = "clear current search" })
 
+vim.keymap.set(
+  "n",
+  "<leader>fC",
+  ':let @+ = expand("%:p:.")<CR>',
+  { noremap = true, silent = true, desc = "Copy path (cwd)" }
+)
+
 -- buffers
 vim.keymap.set("n", "<C-,>", ":bprev<enter>", { silent = true, desc = "Prev buffer" })
 vim.keymap.set("n", "<C-.>", ":bnext<enter>", { silent = true, desc = "Next buffer" })
