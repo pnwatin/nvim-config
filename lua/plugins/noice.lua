@@ -6,13 +6,14 @@ return {
         lsp_doc_border = true,
         command_palette = false,
         bottom_search = true,
+        long_message_to_split = true,
       },
       cmdline = {
         view = "cmdline",
         format = {
-          cmdline = { pattern = "^:", icon = ":", lang = "vim" },
-          search_down = { kind = "search", pattern = "^/", icon = "/", lang = "regex" },
-          search_up = { kind = "search", pattern = "^%?", icon = "/", lang = "regex" },
+          cmdline = false,
+          search_down = false,
+          search_up = false,
           filter = false,
           lua = false,
           help = false,
