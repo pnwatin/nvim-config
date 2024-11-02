@@ -2,8 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { noremap = true, silent = true, desc = "clear current search" })
-
 vim.keymap.set(
   "n",
   "<leader>fC",
@@ -25,4 +23,4 @@ vim.keymap.set("n", "<leader>E", function()
 end, { silent = true, desc = "Open oil (cwd)" })
 
 -- terminal
-vim.keymap.set("n", "<leader><CR>", "<CMD>terminal<CR>a")
+vim.keymap.set("n", "<leader><CR>", "<CMD>terminal<CR>", { desc = "Terminal" })
