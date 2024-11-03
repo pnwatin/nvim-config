@@ -83,6 +83,14 @@ return {
           },
         },
         prismals = {},
+        tailwindcss = {
+          init_options = {
+            userLanguages = {
+              rust = "html",
+            },
+          },
+          filetypes_include = { "rustx" },
+        },
         emmet_language_server = {
           filetypes = {
             "css",
@@ -100,6 +108,10 @@ return {
           },
         },
         html = {
+          filetypes = {
+            "rustx",
+            "html",
+          },
           init_options = {
             provideFormatter = false,
           },
