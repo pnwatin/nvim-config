@@ -20,10 +20,6 @@ return {
     enabled = false,
   },
   {
-    "folke/neoconf.nvim",
-    enabled = false,
-  },
-  {
     "nvim-neo-tree/neo-tree.nvim",
     enabled = false,
   },
