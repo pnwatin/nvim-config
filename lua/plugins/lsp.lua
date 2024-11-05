@@ -8,6 +8,11 @@ return {
       document_highlight = {
         enabled = false,
       },
+      diagnostics = {
+        float = {
+          border = "rounded",
+        },
+      },
       servers = {
         bashls = {
           handlers = {
