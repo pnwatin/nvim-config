@@ -1,14 +1,35 @@
 return {
   {
     "stevearc/oil.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    lazy = false,
+    keys = {
+      {
+        "<leader>e",
+        function()
+          local oil = require("oil")
+          oil.open()
+        end,
+        desc = "Open oil",
+        silent = true,
+      },
+      {
+        "<leader>E",
+        function()
+          local oil = require("oil")
+          local cwd = vim.fn.getcwd()
+          oil.open(cwd)
+        end,
+        desc = "Open oil (cwd)",
+        silent = true,
+      },
+    },
     opts = {
-      -- default_file_explorer = false,
       keymaps = {
         ["g?"] = "actions.show_help",
         ["<CR>"] = "actions.select",
         ["|"] = "actions.select_vsplit",
         ["-"] = "actions.select_split",
-        -- ["<C-t>"] = "actions.select_tab",
         ["<C-p>"] = "actions.preview",
         ["q"] = "actions.close",
         ["gr"] = "actions.refresh",
@@ -28,6 +49,5 @@ return {
       },
       skip_confirm_for_simple_edits = true,
     },
-    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 }
