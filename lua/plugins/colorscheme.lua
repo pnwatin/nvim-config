@@ -13,11 +13,6 @@ return {
       },
       integrations = {
         blink_cmp = true,
-        native_lsp = {
-          inlay_hints = {
-            background = false,
-          },
-        },
       },
     },
   },
