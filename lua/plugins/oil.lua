@@ -8,7 +8,7 @@ return {
         "<leader>e",
         function()
           local oil = require("oil")
-          oil.open()
+          oil.toggle_float()
         end,
         desc = "Open oil",
         silent = true,
@@ -18,7 +18,7 @@ return {
         function()
           local oil = require("oil")
           local cwd = vim.fn.getcwd()
-          oil.open(cwd)
+          oil.toggle_float(cwd)
         end,
         desc = "Open oil (cwd)",
         silent = true,
@@ -36,16 +36,12 @@ return {
         ["<bs>"] = "actions.parent",
         ["_"] = "actions.open_cwd",
         ["gs"] = "actions.change_sort",
-        ["gx"] = "actions.open_external",
         ["g."] = "actions.toggle_hidden",
         ["g\\"] = "actions.toggle_trash",
       },
       use_default_keymaps = false,
       view_options = {
         show_hidden = true,
-      },
-      preview = {
-        min_width = 30,
       },
       skip_confirm_for_simple_edits = true,
     },
