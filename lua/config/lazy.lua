@@ -52,7 +52,6 @@ require("lazy").setup({
     { import = "plugins" },
   },
   ui = {
-    backdrop = 100,
     border = "rounded",
   },
   defaults = {
@@ -72,9 +71,8 @@ require("lazy").setup({
       disabled_plugins = {
         "gzip",
         "matchit",
-
         "matchparen",
-        -- "netrwPlugin",
+        "netrwPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",
