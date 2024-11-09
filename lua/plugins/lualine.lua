@@ -43,13 +43,12 @@ return {
           },
           lualine_c = {
             {
-              "buffers",
+              "filename",
               use_mode_colors = true,
               symbols = {
-                alternate_file = "",
+                modified = " ●",
               },
             },
-
             {
               "diagnostics",
               symbols = {
