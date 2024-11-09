@@ -40,6 +40,7 @@ require("lazy").setup({
 
     -- editor
     { import = "lazyvim.plugins.extras.editor.fzf" },
+    { import = "lazyvim.plugins.extras.editor.mini-files" },
 
     -- ui
     { import = "lazyvim.plugins.extras.ui.mini-indentscope" },
