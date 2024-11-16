@@ -11,9 +11,6 @@ return {
           mantle = "#11111b",
         },
       },
-      integrations = {
-        blink_cmp = true,
-      },
     },
   },
   {

@@ -28,3 +28,5 @@ opt.iskeyword:append("-")
 -- opt.foldmethod = "indent"
 opt.foldenable = false
 opt.foldnestmax = 1
+
+vim.g.lazyvim_blink_main = true
