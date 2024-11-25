@@ -9,6 +9,8 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Copy path (cwd)" }
 )
 
+vim.keymap.set("n", "<leader>qw", "<Cmd>wqa<CR>", { noremap = true, silent = true, desc = "Write and Quit All" })
+
 -- buffers
 vim.keymap.set("n", "<C-,>", ":bprev<enter>", { silent = true, desc = "Prev buffer" })
 vim.keymap.set("n", "<C-.>", ":bnext<enter>", { silent = true, desc = "Next buffer" })
