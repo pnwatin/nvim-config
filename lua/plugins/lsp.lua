@@ -12,6 +12,7 @@ return {
         float = {
           border = "rounded",
         },
+        virtual_text = false,
       },
       servers = {
         bashls = {
