@@ -42,6 +42,4 @@ local function toggle_virtual_text()
 
   print(enabled and "Diagnostics text enabled" or "Diagnostics text disabled")
 end
-
--- Initial keymap setup
 vim.keymap.set("n", "<leader>uv", toggle_virtual_text, { desc = "Enable diagnostics text" })
