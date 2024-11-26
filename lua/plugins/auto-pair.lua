@@ -11,13 +11,14 @@ return {
         {
           "'",
           "'",
-          suround = true,
-          cond = function(fn)
-            return not fn.in_lisp() or fn.in_string()
-          end,
-          alpha = true,
-          nft = { "tex", "rust" },
           multiline = false,
+          surround = true,
+          cond = function(fn)
+            if fn.get_ft() ~= "rust" then
+              return true
+            end
+            return not fn.in_node({ "bounded_type", "reference_type", "type_arguments", "type_parameters" })
+          end,
         },
       },
     },
