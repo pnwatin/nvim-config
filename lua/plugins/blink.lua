@@ -2,9 +2,12 @@ return {
   {
     "saghen/blink.cmp",
     opts = {
-      windows = {
+      completion = {
+        accept = { auto_brackets = { enabled = false } },
         documentation = {
-          border = "rounded",
+          auto_show = true,
+          auto_show_delay_ms = 200,
+          window = { border = "rounded" },
         },
       },
     },
