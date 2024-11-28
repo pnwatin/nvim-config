@@ -3,6 +3,7 @@
 -- Add any additional autocmds here
 
 -- Define `rustx` as a subtype of `rust`
+-- set it with // vim: filetype=rustx
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "rustx",
   callback = function()
