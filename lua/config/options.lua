@@ -17,7 +17,6 @@ opt.wrap = false
 opt.conceallevel = 0
 opt.number = true
 opt.relativenumber = true
-opt.numberwidth = 3
 
 opt.softtabstop = 2
 opt.scrolloff = 99999
