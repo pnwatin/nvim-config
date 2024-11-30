@@ -28,7 +28,13 @@ return {
     },
     opts = {
       mappings = {
+        close = "<esc>",
         go_in_plus = "<CR>",
+        synchronize = "s",
+      },
+      windows = {
+        width_focus = 30,
+        width_preview = 50,
       },
       options = {
         use_as_default_explorer = true,
