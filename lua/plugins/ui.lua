@@ -2,9 +2,9 @@ return {
   {
     "lukas-reineke/virt-column.nvim",
     opts = {
-      char = { "╎", "⎟" },
-      virtcolumn = "80, 120",
-      highlight = { "EndOfBuffer", "EndOfBuffer" },
+      char = { "╎" },
+      virtcolumn = "100",
+      highlight = { "EndOfBuffer" },
     },
   },
   {
