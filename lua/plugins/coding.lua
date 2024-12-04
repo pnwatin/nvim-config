@@ -3,7 +3,14 @@ return {
     "saghen/blink.cmp",
     opts = {
       completion = {
+        list = { selection = "manual" },
         accept = { auto_brackets = { enabled = false } },
+        menu = {
+          max_height = 5,
+          draw = {
+            columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+          },
+        },
         documentation = {
           auto_show = true,
           auto_show_delay_ms = 200,
