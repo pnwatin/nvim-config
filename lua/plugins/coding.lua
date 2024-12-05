@@ -2,12 +2,16 @@ return {
   {
     "saghen/blink.cmp",
     opts = {
+      appearance = {
+        nerd_font_variant = "Nerd Font Mono",
+      },
       completion = {
         list = { selection = "manual" },
         accept = { auto_brackets = { enabled = false } },
         menu = {
           max_height = 5,
           draw = {
+            treesitter = false,
             columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
           },
         },
