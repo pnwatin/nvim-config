@@ -93,6 +93,11 @@ return {
               end,
               desc = "Select TS workspace version",
             },
+            {
+              "<leader>ce",
+              "<Cmd>EslintFixAll<CR>",
+              desc = "Fix all eslint diagnostics",
+            },
           },
         },
         prismals = {},

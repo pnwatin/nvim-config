@@ -22,11 +22,9 @@ opt.softtabstop = 2
 opt.scrolloff = 99999
 opt.sidescrolloff = 15
 
-opt.iskeyword:append("-")
-
--- opt.foldmethod = "indent"
 opt.foldenable = false
 opt.foldnestmax = 1
 
 vim.g.lazyvim_blink_main = true
 vim.g.ai_cmp = false
+vim.g.lazyvim_eslint_auto_format = false
