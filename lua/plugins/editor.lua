@@ -28,7 +28,7 @@ return {
     },
     opts = {
       mappings = {
-        close = "<esc>",
+        close = "q",
         go_in_plus = "<CR>",
         synchronize = "s",
       },

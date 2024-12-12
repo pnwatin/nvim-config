@@ -31,11 +31,6 @@ return {
         { "{", "}", suround = true, multiline = true },
         { "[", "]", suround = true, multiline = true },
         { "(", ")", suround = true, multiline = true },
-        {
-          "'",
-          "'",
-          conf = { nft = { "rust" } },
-        },
       },
     },
   },
