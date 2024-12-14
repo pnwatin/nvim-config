@@ -28,8 +28,11 @@ return {
     },
     opts = {
       mappings = {
-        close = "q",
+        go_in = "<Right>",
         go_in_plus = "<CR>",
+        go_out = "<Left>",
+        go_out_plus = "<Left>",
+        close = "q",
         synchronize = "s",
       },
       windows = {
