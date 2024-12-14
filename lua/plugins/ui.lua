@@ -17,15 +17,6 @@ return {
     },
   },
   {
-    "echasnovski/mini.indentscope",
-    opts = {
-      draw = {
-        animation = require("mini.indentscope").gen_animation.none(),
-      },
-      symbol = "╎",
-    },
-  },
-  {
     "nvim-lualine/lualine.nvim",
     opts = {
       options = {
@@ -58,9 +49,33 @@ return {
   },
   {
     "folke/snacks.nvim",
+    keys = {
+      {
+        "<leader>.",
+        false,
+      },
+      {
+        "<leader>S",
+        false,
+      },
+      {
+        "<leader>dps",
+        false,
+      },
+    },
     opts = {
       dashboard = {
         enabled = false,
+      },
+      scratch = { enabled = false },
+      scroll = { enabled = false },
+      indent = {
+        indent = {
+          char = "╎",
+          hl = "EndOfBuffer",
+        },
+        animate = { enabled = false },
+        scope = { char = "╎", hl = "ModeMsg" },
       },
       lazygit = {
         win = {

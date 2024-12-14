@@ -19,12 +19,6 @@ vim.keymap.set("n", "<C-.>", ":bnext<enter>", { silent = true, desc = "Next buff
 vim.keymap.set("n", "<C-x>", function()
   Snacks.bufdelete()
 end, { silent = true, desc = "Delete buffer" })
-vim.keymap.set("n", "<leader><C-x>", function()
-  Snacks.bufdelete.other()
-end, { silent = true, desc = "Delete all other buffers" })
-vim.keymap.set("n", "<leader>X", function()
-  Snacks.bufdelete.all()
-end, { silent = true, desc = "Delete all buffers" })
 
 -- toggle lsp diagnostics virtual text
 local function toggle_virtual_text()

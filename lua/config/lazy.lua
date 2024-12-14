@@ -17,7 +17,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.tailwind" },
 
     { import = "lazyvim.plugins.extras.lang.git" },
-    { import = "lazyvim.plugins.extras.lang.sql" },
 
     { import = "lazyvim.plugins.extras.lang.toml" },
     { import = "lazyvim.plugins.extras.lang.json" },
@@ -43,7 +42,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.mini-files" },
 
     -- ui
-    { import = "lazyvim.plugins.extras.ui.mini-indentscope" },
 
     -- util
     { import = "lazyvim.plugins.extras.util.dot" },
