@@ -67,6 +67,7 @@ return {
       dashboard = {
         enabled = false,
       },
+      words = { enabled = false },
       scratch = { enabled = false },
       scroll = { enabled = false },
       indent = {
