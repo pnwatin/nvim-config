@@ -10,3 +10,6 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.filetype = "rust"
   end,
 })
+
+-- Delete lazyvim default auto command that enable wrap and spell options in text files
+vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
