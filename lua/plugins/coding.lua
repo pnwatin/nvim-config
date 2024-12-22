@@ -10,6 +10,7 @@ return {
         menu = {
           max_height = 5,
           draw = {
+            treesitter = {},
             columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
           },
         },
