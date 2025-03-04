@@ -6,7 +6,7 @@ return {
         nerd_font_variant = "Nerd Font Mono",
       },
       completion = {
-        accept = { auto_brackets = { enabled = false } },
+        accept = { auto_brackets = { enabled = true } },
         menu = {
           max_height = 5,
           draw = {
