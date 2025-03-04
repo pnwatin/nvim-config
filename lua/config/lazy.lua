@@ -39,6 +39,7 @@ require("lazy").setup({
     -- editor
     { import = "lazyvim.plugins.extras.editor.fzf" },
     { import = "lazyvim.plugins.extras.editor.mini-files" },
+    { import = "lazyvim.plugins.extras.editor.harpoon2" },
 
     -- ui
 
