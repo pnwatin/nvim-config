@@ -12,7 +12,14 @@ return {
     opts = {
       presets = {
         lsp_doc_border = true,
-        bottom_search = false,
+        bottom_search = true,
+      },
+      cmdline = {
+        enabled = false,
+        -- view = "cmdline",
+      },
+      messages = {
+        enabled = false,
       },
     },
   },
