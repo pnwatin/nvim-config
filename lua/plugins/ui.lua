@@ -14,6 +14,7 @@ return {
         lsp_doc_border = true,
         bottom_search = true,
       },
+      popupmenu = { enabled = false },
       cmdline = {
         enabled = false,
         -- view = "cmdline",
