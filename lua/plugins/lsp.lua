@@ -90,7 +90,6 @@ return {
             },
           },
         },
-        prismals = {},
         tailwindcss = {
           init_options = {
             userLanguages = {

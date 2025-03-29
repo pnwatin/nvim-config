@@ -22,6 +22,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
     { import = "lazyvim.plugins.extras.lang.docker" },
+    { import = "lazyvim.plugins.extras.lang.prisma" },
 
     -- lsp
 
@@ -38,7 +39,7 @@ require("lazy").setup({
 
     -- editor
     { import = "lazyvim.plugins.extras.editor.fzf" },
-    { import = "lazyvim.plugins.extras.editor.mini-files" },
+    -- { import = "lazyvim.plugins.extras.editor.mini-files" },
     { import = "lazyvim.plugins.extras.editor.harpoon2" },
 
     -- ui
