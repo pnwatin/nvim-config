@@ -3,8 +3,9 @@ return {
     "saghen/blink.cmp",
     opts = {
       appearance = {
-        nerd_font_variant = "Nerd Font Mono",
+        nerd_font_variant = "mono",
       },
+      fuzzy = { implementation = "rust" },
       completion = {
         accept = { auto_brackets = { enabled = true } },
         menu = {
