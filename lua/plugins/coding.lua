@@ -9,7 +9,6 @@ return {
       completion = {
         accept = { auto_brackets = { enabled = true } },
         menu = {
-          border = "none",
           max_height = 5,
           draw = {
             treesitter = {},
