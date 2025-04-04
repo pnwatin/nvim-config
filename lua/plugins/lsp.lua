@@ -1,6 +1,7 @@
 return {
   {
     "williamboman/mason.nvim",
+    keys = { { "<leader>cm", false } },
     opts = {
       ui = { border = "rounded" },
     },
