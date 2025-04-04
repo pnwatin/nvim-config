@@ -35,4 +35,31 @@ return {
       skip_confirm_for_simple_edits = true,
     },
   },
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    vscode = true,
+    opts = {},
+    keys = {
+      { "s", false },
+      { "S", false },
+
+      {
+        "ss",
+        mode = { "n", "x", "o" },
+        function()
+          require("flash").jump()
+        end,
+        desc = "Flash",
+      },
+      {
+        "SS",
+        mode = { "n", "o", "x" },
+        function()
+          require("flash").treesitter()
+        end,
+        desc = "Flash Treesitter",
+      },
+    },
+  },
 }
