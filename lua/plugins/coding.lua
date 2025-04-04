@@ -7,7 +7,7 @@ return {
       },
       fuzzy = { implementation = "rust" },
       completion = {
-        accept = { auto_brackets = { enabled = true } },
+        accept = { auto_brackets = { enabled = false } },
         menu = {
           max_height = 5,
           draw = {
