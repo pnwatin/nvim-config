@@ -6,12 +6,8 @@ return {
         nerd_font_variant = "mono",
       },
       fuzzy = { implementation = "rust" },
-      signature = { enabled = true, window = { border = "rounded" } },
       completion = {
-        accept = { dot_repeat = false, auto_brackets = { enabled = false } },
-        list = {
-          selection = { preselect = false },
-        },
+        accept = { auto_brackets = { enabled = false } },
         menu = {
           max_height = 5,
           draw = {
@@ -20,7 +16,7 @@ return {
           },
         },
         documentation = {
-          auto_show = false,
+          auto_show = true,
           auto_show_delay_ms = 200,
           window = { border = "rounded" },
         },
