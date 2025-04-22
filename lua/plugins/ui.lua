@@ -87,6 +87,7 @@ return {
         animate = { enabled = false },
         scope = { char = "╎", hl = "ModeMsg" },
       },
+      input = { enabled = false },
       lazygit = {
         win = {
           border = "rounded",
