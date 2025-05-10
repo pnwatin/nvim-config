@@ -22,7 +22,7 @@ return {
       messages = {
         enabled = false,
       },
-      lsp = { signature = { enabled = true } },
+      lsp = { signature = { enabled = false } },
     },
   },
   {
