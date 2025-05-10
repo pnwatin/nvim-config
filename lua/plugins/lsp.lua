@@ -1,11 +1,13 @@
 return {
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
+    version = "^1.0.0",
     keys = { { "<leader>cm", false } },
     opts = {
       ui = { border = "rounded" },
     },
   },
+  { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
   {
     "neovim/nvim-lspconfig",
     opts = {
