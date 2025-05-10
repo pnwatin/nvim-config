@@ -8,7 +8,7 @@ return {
         "<leader>e",
         function()
           local oil = require("oil")
-          oil.toggle_float()
+          oil.open(nil, { preview = { vertical = true } })
         end,
         desc = "Open oil",
         silent = true,
@@ -17,8 +17,7 @@ return {
         "<leader>E",
         function()
           local oil = require("oil")
-          local cwd = vim.fn.getcwd()
-          oil.toggle_float(cwd)
+          oil.open(vim.fn.getcwd(), { preview = { vertical = true } })
         end,
         desc = "Open oil (cwd)",
         silent = true,
