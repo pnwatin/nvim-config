@@ -73,6 +73,9 @@ return {
       },
     },
     opts = {
+      image = {
+        enabled = false,
+      },
       dashboard = {
         enabled = false,
       },
