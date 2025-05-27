@@ -1,5 +1,27 @@
 return {
   {
+    "m4xshen/hardtime.nvim",
+    lazy = false,
+    dependencies = { "MunifTanjim/nui.nvim" },
+    enabled = true,
+    opts = {
+      max_count = 4,
+      disable_mouse = false,
+      disabled_keys = {
+        ["<Up>"] = false,
+        ["<Down>"] = false,
+        ["<Left>"] = false,
+        ["<Right>"] = false,
+      },
+      restricted_keys = {
+        ["<Up>"] = { "n", "x" },
+        ["<Down>"] = { "n", "x" },
+        ["<Left>"] = { "n", "x" },
+        ["<Right>"] = { "n", "x" },
+      },
+    },
+  },
+  {
     "stevearc/oil.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     lazy = false,
