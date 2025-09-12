@@ -8,7 +8,7 @@ return {
       fuzzy = { implementation = "rust" },
       signature = { enabled = true, window = { border = "rounded" } },
       completion = {
-        accept = { resolve_timeout = 500, dot_repeat = false, auto_brackets = { enabled = false } },
+        accept = { resolve_timeout_ms = 500, dot_repeat = false, auto_brackets = { enabled = false } },
         list = {
           selection = { preselect = true },
         },
