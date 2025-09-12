@@ -22,6 +22,9 @@ return {
         virtual_text = false,
       },
       servers = {
+        eslint = {
+          keys = { { "<leader>ce", "<CMD>EslintFixAll<CR>", desc = "Fix all eslint diagnostics" } },
+        },
         tailwindcss = {
           init_options = {
             userLanguages = {
