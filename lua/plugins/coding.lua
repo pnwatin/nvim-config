@@ -8,7 +8,7 @@ return {
       fuzzy = { implementation = "rust" },
       signature = { enabled = true, window = { border = "rounded" } },
       completion = {
-        accept = { dot_repeat = false, auto_brackets = { enabled = false } },
+        accept = { resolve_timeout = 500, dot_repeat = false, auto_brackets = { enabled = false } },
         list = {
           selection = { preselect = true },
         },
@@ -23,6 +23,13 @@ return {
           auto_show = true,
           auto_show_delay_ms = 200,
           window = { border = "rounded" },
+        },
+      },
+      sources = {
+        providers = {
+          buffer = { enabled = false },
+          lsp = { score_offset = 10 },
+          snippets = { score_offset = 9 },
         },
       },
     },
