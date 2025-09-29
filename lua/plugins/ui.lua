@@ -12,6 +12,14 @@ return {
           mantle = "#11111b",
         },
       },
+      lsp_styles = {
+        underlines = {
+          errors = { "undercurl" },
+          hints = { "undercurl" },
+          warnings = { "undercurl" },
+          information = { "undercurl" },
+        },
+      },
       integrations = {
         blink_cmp = true,
         fidget = true,
@@ -20,15 +28,6 @@ return {
         lsp_trouble = true,
         mason = true,
         mini = true,
-        native_lsp = {
-          enabled = true,
-          underlines = {
-            errors = { "undercurl" },
-            hints = { "undercurl" },
-            warnings = { "undercurl" },
-            information = { "undercurl" },
-          },
-        },
         snacks = true,
         treesitter = true,
         which_key = true,
