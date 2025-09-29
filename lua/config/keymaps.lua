@@ -1,4 +1,6 @@
 -- buffers
+vim.keymap.set("n", "H", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
+vim.keymap.set("n", "L", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 vim.keymap.set("n", "<leader>bb", "<cmd>e #<cr>", { desc = "Switch to Other Buffer" })
