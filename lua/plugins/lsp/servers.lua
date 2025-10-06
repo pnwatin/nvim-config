@@ -5,6 +5,7 @@ M.servers.tailwindcss = {}
 M.servers.dockerls = {}
 M.servers.docker_compose_language_service = {}
 M.servers.taplo = {}
+M.servers.tinymist = {}
 
 M.servers.eslint = {
   settings = { workingDirectories = { mode = "auto" }, format = false },
