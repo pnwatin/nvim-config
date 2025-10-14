@@ -123,13 +123,6 @@ return {
       },
       { "<leader>fb", "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>", desc = "Buffers" },
       { "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Files (root)" },
-      {
-        "<leader>fF",
-        function()
-          require("fzf-lua").files({ cwd = vim.uv.cwd() })
-        end,
-        desc = "Files (cwd)",
-      },
       { "<leader>fg", "<cmd>FzfLua git_files<cr>", desc = "Git files" },
       { "<leader>fr", "<cmd>FzfLua oldfiles<cr>", desc = "Recent" },
       {
@@ -251,16 +244,7 @@ return {
         opts[1] = nil
       end
       require("fzf-lua").setup(opts)
-    end,
-    init = function()
-      Util.on_very_lazy(function()
-        ---@diagnostic disable-next-line: duplicate-set-field
-        vim.ui.select = function(...)
-          require("lazy").load({ plugins = { "fzf-lua" } })
-          require("fzf-lua").register_ui_select()
-          return vim.ui.select(...)
-        end
-      end)
+      require("fzf-lua").register_ui_select()
     end,
   },
   {
