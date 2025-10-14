@@ -11,7 +11,6 @@ return {
     opts = {
       git = { enabled = true },
       input = { enabled = false },
-      image = { enabled = true },
       indent = {
         indent = {
           char = "╎",
