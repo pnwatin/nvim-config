@@ -30,10 +30,12 @@ vim.keymap.set("n", "<leader>cf", function()
     return
   end
 
-  vim.fn.setreg("+", filepath)
-  vim.fn.setreg("*", filepath)
+  local relpath = vim.fn.fnamemodify(filepath, ":.")
 
-  vim.notify("Copied file path: " .. filepath, vim.log.levels.INFO)
+  vim.fn.setreg("+", relpath)
+  vim.fn.setreg("*", relpath)
+
+  vim.notify("Copied file path: " .. relpath, vim.log.levels.INFO)
 end, { noremap = true, silent = true, desc = "Copy path (cwd)" })
 
 -- move Lines
