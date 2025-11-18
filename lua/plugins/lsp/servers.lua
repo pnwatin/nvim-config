@@ -9,7 +9,7 @@ M.servers.tinymist = {}
 
 M.servers.eslint = {
   settings = { workingDirectories = { mode = "auto" }, format = false },
-  keys = { { "<leader>ce", "<CMD>EslintFixAll<CR>", desc = "Fix all eslint diagnostics" } },
+  keys = { { "<leader>ce", "<CMD>LspEslintFixAll<CR>", desc = "Fix all eslint diagnostics" } },
 }
 
 M.lua_ls = {
