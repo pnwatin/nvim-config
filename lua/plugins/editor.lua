@@ -175,19 +175,10 @@ return {
         mode = "v",
         desc = "Selection (cwd)",
       },
-      -- git
-      {
-        "<leader>gb",
-        function()
-          require("fzf-lua").git_blame({
-            cmd = [[git blame --color-lines --date=short {file} | awk '!seen[$1]++']],
-          })
-        end,
-        mode = { "v", "n" },
-        desc = "Blame",
-      },
       { "<leader>gf", "<cmd>FzfLua git_bcommits<cr>", desc = "Commits (buffer)" },
-      { "<leader>gl", "<cmd>FzfLua git_commits<cr>", desc = "Commits (project)" },
+      { "<leader>gb", "<cmd>FzfLua git_bcommits<cr>", desc = "Blame", mode = { "v" } },
+      { "<leader>gb", "V<cmd>FzfLua git_bcommits<cr>", desc = "Blame current line", mode = { "n" } },
+      { "<leader>gL", "<cmd>FzfLua git_commits<cr>", desc = "Commits (project)" },
       { "<leader>gs", "<cmd>FzfLua git_status<cr>", desc = "Status" },
     },
     opts = function()
