@@ -1,5 +1,6 @@
 local prettier = require("plugins.formatting.prettier")
 local biome = require("plugins.formatting.biome")
+local sql = require("plugins.formatting.sql")
 
 local format_opts = {
   timeout_ms = 3000,
@@ -21,6 +22,7 @@ return {
         formatters = {
           prettier = prettier.get_config(),
           biome = biome.get_config(),
+          sqlfluff = sql.get_config(),
           ["biome-check"] = biome.get_config(),
         },
         format_on_save = function(bufnr)
@@ -41,6 +43,7 @@ return {
       opts.formatters_by_ft = opts.formatters_by_ft or {}
       prettier.register(opts.formatters_by_ft)
       biome.register(opts.formatters_by_ft)
+      sql.register(opts.formatters_by_ft)
 
       return opts
     end,

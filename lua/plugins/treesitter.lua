@@ -60,6 +60,7 @@ return {
         "regex",
         "ron",
         "rust",
+        "sql",
         "toml",
         "tsx",
         "typescript",

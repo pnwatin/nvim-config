@@ -6,6 +6,9 @@ return {
       events = { "BufWritePost", "BufReadPost", "InsertLeave" },
       linters_by_ft = {
         dockerfile = { "hadolint" },
+        sql = { "sqlfluff" },
+        mysql = { "sqlfluff" },
+        plsql = { "sqlfluff" },
       },
       ---@type table<string,table>
       linters = {},
