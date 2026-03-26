@@ -5,7 +5,6 @@ return {
     priority = 1000,
     opts = {
       transparent_background = true,
-      show_end_of_buffer = true,
       color_overrides = {
         mocha = {
           base = "#11111b",
