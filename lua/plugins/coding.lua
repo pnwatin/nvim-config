@@ -31,6 +31,22 @@ return {
       },
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },
+        providers = {
+          lsp = {
+            transform_items = function(_, items)
+              for _, item in ipairs(items) do
+                if item.client_name == "emmet_ls"
+                  or item.client_name == "emmet-language-server"
+                  or item.client_name == "emmet_language_server"
+                then
+                  item.score_offset = (item.score_offset or 0) - 100
+                end
+              end
+
+              return items
+            end,
+          },
+        },
       },
       cmdline = { enabled = false },
       keymap = {
