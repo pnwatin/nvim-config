@@ -129,6 +129,10 @@ M.servers.vtsls = {
     },
     typescript = {
       updateImportsOnFileMove = { enabled = "always" },
+      preferences = {
+        importModuleSpecifier = "non-relative",
+        importModuleSpecifierEnding = "minimal",
+      },
       suggest = {
         completeFunctionCalls = true,
       },
