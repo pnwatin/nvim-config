@@ -36,6 +36,7 @@ return {
       require("catppuccin").setup(opts)
 
       vim.cmd.colorscheme("catppuccin")
+      vim.opt.fillchars:append({ msgsep = "-" })
     end,
   },
   {

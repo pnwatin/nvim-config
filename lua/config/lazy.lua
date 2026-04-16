@@ -15,6 +15,7 @@ end
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
+require("vim._core.ui2").enable()
 require("config.options")
 require("config.autocmds")
 
