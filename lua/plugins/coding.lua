@@ -1,7 +1,7 @@
 return {
   {
     "saghen/blink.cmp",
-    version = "*",
+    version = "1.*",
     build = "cargo build --release",
     opts = {
       appearance = {
@@ -35,7 +35,8 @@ return {
           lsp = {
             transform_items = function(_, items)
               for _, item in ipairs(items) do
-                if item.client_name == "emmet_ls"
+                if
+                  item.client_name == "emmet_ls"
                   or item.client_name == "emmet-language-server"
                   or item.client_name == "emmet_language_server"
                 then
