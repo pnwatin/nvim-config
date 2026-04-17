@@ -216,6 +216,11 @@ return {
             ["alt-h"] = { actions.toggle_hidden },
           },
         },
+        lsp = {
+          code_actions = {
+            previewer = false,
+          },
+        },
       }
     end,
     config = function(_, opts)
