@@ -10,6 +10,9 @@ end, { desc = "Delete Buffer" })
 vim.keymap.set("n", "<leader>bo", function()
   Snacks.bufdelete.other()
 end, { desc = "Delete Other Buffers" })
+vim.keymap.set("n", "<leader>ba", function()
+  Snacks.bufdelete.all()
+end, { desc = "Delete Other Buffers" })
 vim.keymap.set("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
 
 -- move to window using the <ctrl> hjkl keys
