@@ -16,15 +16,14 @@ vim.api.nvim_create_autocmd("User", {
         local _, path = require("oil.util").parse_url(action.url)
         local bufnr = vim.fn.bufnr(path)
         if bufnr ~= -1 then
-          Snacks.bufdelete.delete(bufnr)
+          -- TODO: buf delete
         end
 
         return
       end
 
-      -- Snacks lsp rename on Oil file move
       if action.type == "move" then
-        Snacks.rename.on_rename_file(action.src_url, action.dest_url)
+        -- TODO: lsp rename
         return
       end
     end
@@ -32,7 +31,7 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 -- Auto create dir when saving a file, in case some intermediate directory does not exist
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+vim.api.nvim_create_autocmd("BufWritePre", {
   group = augroup("auto_create_dir"),
   callback = function(event)
     if event.match:match("^%w%w+:[\\/][\\/]") then
@@ -40,5 +39,19 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     end
     local file = vim.uv.fs_realpath(event.match) or event.match
     vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
+  end,
+})
+
+vim.api.nvim_create_autocmd("LspProgress", {
+  callback = function(ev)
+    local value = ev.data.params.value
+    vim.api.nvim_echo({ { value.message or "✓" } }, false, {
+      id = "lsp." .. ev.data.client_id,
+      kind = "progress",
+      source = "vim.lsp",
+      title = value.title,
+      status = value.kind ~= "end" and "running" or "success",
+      percent = value.percentage,
+    })
   end,
 })

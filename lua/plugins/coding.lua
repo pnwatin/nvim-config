@@ -31,23 +31,6 @@ return {
       },
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },
-        providers = {
-          lsp = {
-            transform_items = function(_, items)
-              for _, item in ipairs(items) do
-                if
-                  item.client_name == "emmet_ls"
-                  or item.client_name == "emmet-language-server"
-                  or item.client_name == "emmet_language_server"
-                then
-                  item.score_offset = (item.score_offset or 0) - 100
-                end
-              end
-
-              return items
-            end,
-          },
-        },
       },
       cmdline = { enabled = false },
       keymap = {
@@ -102,24 +85,11 @@ return {
             },
             "^().*()$",
           },
-          g = Util.mini.ai_buffer, -- buffer
           u = ai.gen_spec.function_call(), -- u for "Usage"
           U = ai.gen_spec.function_call({ name_pattern = "[%w_]" }), -- without dot in function name
         },
       }
     end,
-    config = function(_, opts)
-      require("mini.ai").setup(opts)
-      Util.on_load("which-key.nvim", function()
-        vim.schedule(function()
-          Util.mini.ai_whichkey(opts)
-        end)
-      end)
-    end,
-  },
-  {
-    "folke/ts-comments.nvim",
-    event = "VeryLazy",
   },
   {
     "altermo/ultimate-autopair.nvim",
@@ -142,40 +112,6 @@ return {
           multiline = false,
         },
       },
-    },
-  },
-  {
-    "gbprod/yanky.nvim",
-    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-    opts = {
-      highlight = { timer = 200 },
-    },
-    keys = {
-      {
-        "<leader>p",
-        function()
-          vim.cmd([[YankyRingHistory]])
-        end,
-        mode = { "n", "x" },
-        desc = "Open Yank History",
-      },
-      { "y", "<Plug>(YankyYank)", mode = { "n", "x" }, desc = "Yank Text" },
-      { "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" }, desc = "Put Text After Cursor" },
-      { "P", "<Plug>(YankyPutBefore)", mode = { "n", "x" }, desc = "Put Text Before Cursor" },
-      { "gp", "<Plug>(YankyGPutAfter)", mode = { "n", "x" }, desc = "Put Text After Selection" },
-      { "gP", "<Plug>(YankyGPutBefore)", mode = { "n", "x" }, desc = "Put Text Before Selection" },
-      { "[y", "<Plug>(YankyCycleForward)", desc = "Cycle Forward Through Yank History" },
-      { "]y", "<Plug>(YankyCycleBackward)", desc = "Cycle Backward Through Yank History" },
-      { "]p", "<Plug>(YankyPutIndentAfterLinewise)", desc = "Put Indented After Cursor (Linewise)" },
-      { "[p", "<Plug>(YankyPutIndentBeforeLinewise)", desc = "Put Indented Before Cursor (Linewise)" },
-      { "]P", "<Plug>(YankyPutIndentAfterLinewise)", desc = "Put Indented After Cursor (Linewise)" },
-      { "[P", "<Plug>(YankyPutIndentBeforeLinewise)", desc = "Put Indented Before Cursor (Linewise)" },
-      { ">p", "<Plug>(YankyPutIndentAfterShiftRight)", desc = "Put and Indent Right" },
-      { "<p", "<Plug>(YankyPutIndentAfterShiftLeft)", desc = "Put and Indent Left" },
-      { ">P", "<Plug>(YankyPutIndentBeforeShiftRight)", desc = "Put Before and Indent Right" },
-      { "<P", "<Plug>(YankyPutIndentBeforeShiftLeft)", desc = "Put Before and Indent Left" },
-      { "=p", "<Plug>(YankyPutAfterFilter)", desc = "Put After Applying a Filter" },
-      { "=P", "<Plug>(YankyPutBeforeFilter)", desc = "Put Before Applying a Filter" },
     },
   },
 }

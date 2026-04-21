@@ -1,7 +1,3 @@
-_G.Util = require("util")
-
-require("vim._core.ui2").enable()
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -15,7 +11,7 @@ end
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
-require("vim._core.ui2").enable()
+require("vim._core.ui2").enable({ msg = { targets = { progress = "msg" } } })
 require("config.options")
 require("config.autocmds")
 
