@@ -224,6 +224,13 @@ require("lazy").setup({
           end,
           desc = "LiFFFe grep",
         },
+        {
+          "<leader>w",
+          function()
+            require("fff").live_grep({ query = vim.fn.expand("<cword>") })
+          end,
+          desc = "Search current word",
+        },
       },
     },
     {
@@ -659,6 +666,16 @@ require("lazy").setup({
       version = false,
       lazy = false,
       opts = {},
+    },
+    {
+      "nvim-mini/mini.pairs",
+      version = false,
+      lazy = false,
+      opts = {
+        mappings = {
+          ["'"] = { action = "closeopen", pair = "''", neigh_pattern = "^[^%a&\\]", register = { cr = false } },
+        },
+      },
     },
     {
       "nvim-mini/mini.icons",
