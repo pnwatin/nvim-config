@@ -2,11 +2,11 @@ require("vim._core.ui2").enable({})
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-	if vim.v.shell_error ~= 0 then
-		error("Error cloning lazy.nvim:\n" .. out)
-	end
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    error("Error cloning lazy.nvim:\n" .. out)
+  end
 end
 
 vim.g.mapleader = " "
@@ -56,53 +56,44 @@ vim.opt.fillchars:append({ msgsep = "-" })
 
 -- KEYMAPS
 
--- buffers
+-- BUFFERS
 vim.keymap.set("n", "<leader>d", ":bd<CR>", { noremap = true, silent = true, desc = "Delete buffer" })
 vim.keymap.set("n", "<leader>D", ":bd!<CR>", { noremap = true, silent = true, desc = "Delete buffer unchecked" })
 
 vim.keymap.set("n", "<leader>d", ":bd<CR>", { noremap = true, silent = true, desc = "Delete buffer" })
 vim.keymap.set("n", "<leader>D", ":bd!<CR>", { noremap = true, silent = true, desc = "Delete buffer unchecked" })
 
--- term
-vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
+-- WINDOWS
+vim.keymap.set("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
+vim.keymap.set("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
 
--- copy buffer
-vim.keymap.set("n", "<leader>cb", function()
-	vim.cmd("%y*")
-end, { desc = "Copy buffer" })
-
--- copy buffer path
+-- COPY
 vim.keymap.set("n", "<leader>cf", function()
-	local filepath = vim.fn.expand("%:p")
+  local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+  vim.fn.setreg("*", table.concat(lines, "\n"))
 
-	if filepath == "" then
-		vim.notify("No file associated with this buffer.", vim.log.levels.WARN)
-		return
-	end
+  vim.notify("Copied " .. #lines .. " lines", vim.log.levels.INFO)
+end, { desc = "Copy buffer", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>cp", function()
+  local filepath = vim.fn.expand("%:p")
 
-	local relpath = vim.fn.fnamemodify(filepath, ":.")
+  if filepath == "" then
+    vim.notify("No file associated with this buffer.", vim.log.levels.WARN)
+    return
+  end
 
-	vim.fn.setreg("+", relpath)
-	vim.fn.setreg("*", relpath)
+  local relpath = vim.fn.fnamemodify(filepath, ":.")
 
-	vim.notify("Copied file path: " .. relpath, vim.log.levels.INFO)
+  vim.fn.setreg("+", relpath)
+  vim.fn.setreg("*", relpath)
+
+  vim.notify("Copied file path: " .. relpath, vim.log.levels.INFO)
 end, { noremap = true, silent = true, desc = "Copy buffer path (cwd)" })
 
--- clear search on esc
+-- REMAPS
 vim.keymap.set({ "i", "n", "s" }, "<Esc>", "<Esc>:noh<CR>", { noremap = true, silent = true })
 
--- Auto create dir when saving a file, in case some intermediate directory does not exist
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-	callback = function(event)
-		if event.match:match("^%w%w+:[\\/][\\/]") then
-			return
-		end
-		local file = vim.uv.fs_realpath(event.match) or event.match
-		vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
-	end,
-})
-
--- resets
+-- RESETS
 vim.keymap.del("n", "gra")
 vim.keymap.del("x", "gra")
 vim.keymap.del("n", "gri")
