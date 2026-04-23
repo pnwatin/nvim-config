@@ -70,7 +70,7 @@ vim.keymap.set("n", "<leader>cf", function()
   vim.fn.setreg("*", table.concat(lines, "\n"))
 
   vim.notify("Copied " .. #lines .. " lines", vim.log.levels.INFO)
-end, { desc = "Copy buffer", noremap = true, silent = true })
+end, { desc = "Copy buffer", noremap = true })
 vim.keymap.set("n", "<leader>cp", function()
   local filepath = vim.fn.expand("%:p")
 
@@ -85,7 +85,7 @@ vim.keymap.set("n", "<leader>cp", function()
   vim.fn.setreg("*", relpath)
 
   vim.notify("Copied file path: " .. relpath, vim.log.levels.INFO)
-end, { noremap = true, silent = true, desc = "Copy buffer path (cwd)" })
+end, { noremap = true, desc = "Copy buffer path (cwd)" })
 
 -- REMAPS
 vim.keymap.set({ "i", "n", "s" }, "<Esc>", "<Esc>:noh<CR>", { noremap = true, silent = true })
@@ -99,8 +99,15 @@ vim.keymap.del("n", "grn")
 vim.keymap.del("n", "grt")
 vim.keymap.del("n", "grr")
 
+---@param opts? vim.keymap.set.Opts
+local bufmap = function(opts)
+  return function(mode, lhs, rhs, desc)
+    vim.keymap.set(mode, lhs, rhs, vim.tbl_extend("force", opts or {}, { desc = desc }))
+  end
+end
+
 -- LAZYGIT
-vim.keymap.set("n", "<leader>lg", function()
+vim.keymap.set("n", "<leader>gg", function()
   local width = math.floor(vim.o.columns * 0.8)
   local height = math.floor(vim.o.lines * 0.8)
 
@@ -210,8 +217,8 @@ require("lazy").setup({
       build = "cargo build --release -p fff-nvim",
       opts = {
         debug = {
-          enabled = true,
-          show_scores = true,
+          enabled = false,
+          show_scores = false,
         },
         prompt = "> ",
         prompt_vim_mode = false,
@@ -228,7 +235,7 @@ require("lazy").setup({
           desc = "FFFind files",
         },
         {
-          "<leader>g",
+          "<leader>/",
           function()
             require("fff").live_grep()
           end,
@@ -260,7 +267,6 @@ require("lazy").setup({
             require("oil").open(nil)
           end,
           desc = "Open oil",
-          silent = true,
         },
         {
           "<leader>E",
@@ -268,7 +274,6 @@ require("lazy").setup({
             require("oil").open(vim.fn.getcwd())
           end,
           desc = "Open oil (cwd)",
-          silent = true,
         },
       },
       opts = {
@@ -609,27 +614,16 @@ require("lazy").setup({
           group = augroup("lsp_keymaps"),
           callback = function(ev)
             local client = vim.lsp.get_client_by_id(ev.data.client_id)
+            local map = bufmap({ buf = ev.buf })
 
-            local map = function(mode, lhs, rhs, desc)
-              vim.keymap.set(mode, lhs, rhs, { buffer = ev.buf, desc = desc })
-            end
-
-            map("n", "gd", function()
-              vim.lsp.buf.definition({ buf = ev.buf })
-            end, "Jump to definition")
-
-            map("n", "gD", function()
-              vim.lsp.buf.declaration({ buf = ev.buf })
-            end, "Jump to declaration")
-
-            map("n", "gy", function()
-              vim.lsp.buf.type_definition({ buf = ev.buf })
-            end, "Jump to type definition")
-
-            map("n", "gI", function()
-              vim.lsp.buf.implementation({ buf = ev.buf })
-            end, "Jump to implementation")
-
+            map("n", "gd", vim.lsp.buf.definition, "Jump to definition")
+            map("n", "gD", vim.lsp.buf.declaration, "Jump to declaration")
+            map("n", "gy", vim.lsp.buf.type_definition, "Jump to type definition")
+            map("n", "gI", vim.lsp.buf.implementation, "Jump to implementation")
+            map("n", "K", vim.lsp.buf.hover, "Hover")
+            map("i", "<C-k>", vim.lsp.buf.signature_help, "Signature help")
+            map("n", "<leader>ca", vim.lsp.buf.code_action, "Code action")
+            map("n", "<leader>cr", vim.lsp.buf.rename, "Rename")
             map("n", "gr", function()
               vim.lsp.buf.references({ buf = ev.buf, includeDeclaration = false }, {
                 on_list = function(options)
@@ -643,22 +637,6 @@ require("lazy").setup({
                 end,
               })
             end, "References")
-
-            map("n", "K", function()
-              vim.lsp.buf.hover({ buf = ev.buf })
-            end, "Hover")
-
-            map("i", "<C-k>", function()
-              vim.lsp.buf.signature_help({ buf = ev.buf })
-            end, "Signature help")
-
-            map("n", "<leader>ca", function()
-              vim.lsp.buf.code_action({ buf = ev.buf })
-            end, "Code action")
-
-            map("n", "<leader>cr", function()
-              vim.lsp.buf.rename(nil, { buf = ev.buf })
-            end, "Rename")
 
             local ts_source_action = function(kind)
               vim.lsp.buf.code_action({
@@ -751,13 +729,12 @@ require("lazy").setup({
           pattern = "Cargo.toml",
           group = augroup("crates_keymaps"),
           callback = function(args)
-            local buf = args.buf
-            local opts = { buf = buf, silent = true }
+            local map = bufmap({ buf = args.buf, silent = true })
 
-            vim.keymap.set("n", "<leader>ccu", crates.update_crate, opts)
-            vim.keymap.set("n", "<leader>cca", crates.update_all_crates, opts)
-            vim.keymap.set("n", "<leader>ccU", crates.upgrade_crate, opts)
-            vim.keymap.set("n", "<leader>ccA", crates.upgrade_all_crates, opts)
+            map("n", "<leader>ccu", crates.update_crate, "Update crate")
+            map("n", "<leader>cca", crates.update_all_crates, "Update all crates")
+            map("n", "<leader>ccU", crates.upgrade_crate, "Upgrade crate")
+            map("n", "<leader>ccA", crates.upgrade_all_crates, "Upgrade all crates")
           end,
         })
       end,
