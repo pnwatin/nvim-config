@@ -584,11 +584,11 @@ require("lazy").setup({
                 on_list = function(options)
                   local items = options.items
 
+                  vim.fn.setqflist(options.items, " ")
+
                   if #items == 1 then
-                    local item = items[1]
-                    vim.api.nvim_win_set_cursor(0, { item.lnum, item.col - 1 })
+                    vim.cmd.cfirst()
                   else
-                    vim.fn.setqflist(options.items, " ")
                     vim.cmd.copen()
                   end
                 end,
