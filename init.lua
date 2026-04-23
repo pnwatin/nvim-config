@@ -231,6 +231,13 @@ require("lazy").setup({
           end,
           desc = "Search current word",
         },
+        {
+          "<leader>W",
+          function()
+            require("fff").live_grep({ grep = { modes = { "plain " } }, query = vim.fn.expand("<cWORD>") })
+          end,
+          desc = "Search current [W]ord",
+        },
       },
     },
     {
