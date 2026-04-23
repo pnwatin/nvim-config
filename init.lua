@@ -338,7 +338,7 @@ require("lazy").setup({
       opts = {
         ensure_installed = {
           "biome",
-          "tsgo",
+          "vtsls",
           "tailwindcss-language-server",
           "prisma-language-server",
 
@@ -534,7 +534,7 @@ require("lazy").setup({
         vim.lsp.enable("prismals")
         vim.lsp.enable("tailwindcss")
         vim.lsp.enable("biome")
-        vim.lsp.config("tsgo", {
+        vim.lsp.config("vtsls", {
           filetypes = {
             "javascript",
             "javascriptreact",
@@ -544,14 +544,30 @@ require("lazy").setup({
             "typescript.tsx",
           },
           settings = {
+            complete_function_calls = true,
+            vtsls = {
+              enableMoveToFileCodeAction = true,
+              autoUseWorkspaceTsdk = true,
+              experimental = {
+                maxInlayHintLength = 30,
+                completion = {
+                  enableServerSideFuzzyMatch = true,
+                },
+              },
+            },
             typescript = {
+              updateImportsOnFileMove = { enabled = "always" },
+              preferences = {
+                importModuleSpecifier = "non-relative",
+                importModuleSpecifierEnding = "minimal",
+              },
+              suggest = {
+                completeFunctionCalls = true,
+              },
               inlayHints = {
                 enumMemberValues = { enabled = true },
-                functionLikeReturnTypes = { enabled = false },
-                parameterNames = {
-                  enabled = "literals",
-                  suppressWhenArgumentMatchesName = true,
-                },
+                functionLikeReturnTypes = { enabled = true },
+                parameterNames = { enabled = "literals" },
                 parameterTypes = { enabled = true },
                 propertyDeclarationTypes = { enabled = true },
                 variableTypes = { enabled = false },
@@ -559,33 +575,37 @@ require("lazy").setup({
             },
           },
         })
-        vim.lsp.enable("tsgo")
+        vim.lsp.enable("vtsls")
 
         vim.api.nvim_create_autocmd("LspAttach", {
           callback = function(ev)
-            vim.keymap.set("n", "gd", function()
+            local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
+            local map = function(mode, lhs, rhs, desc)
+              vim.keymap.set(mode, lhs, rhs, { buffer = ev.buf, desc = desc })
+            end
+
+            map("n", "gd", function()
               vim.lsp.buf.definition({ buf = ev.buf })
-            end, { desc = "Jump to definition" })
+            end, "Jump to definition")
 
-            vim.keymap.set("n", "gD", function()
+            map("n", "gD", function()
               vim.lsp.buf.declaration({ buf = ev.buf })
-            end, { desc = "Jump to declaration" })
+            end, "Jump to declaration")
 
-            vim.keymap.set("n", "gy", function()
+            map("n", "gy", function()
               vim.lsp.buf.type_definition({ buf = ev.buf })
-            end, { desc = "Jump to type definition" })
+            end, "Jump to type definition")
 
-            vim.keymap.set("n", "gI", function()
+            map("n", "gI", function()
               vim.lsp.buf.implementation({ buf = ev.buf })
-            end, { desc = "Jump to implementation" })
+            end, "Jump to implementation")
 
-            vim.keymap.set("n", "gr", function()
+            map("n", "gr", function()
               vim.lsp.buf.references({ buf = ev.buf, includeDeclaration = false }, {
                 on_list = function(options)
                   local items = options.items
-
                   vim.fn.setqflist(options.items, " ")
-
                   if #items == 1 then
                     vim.cmd.cfirst()
                   else
@@ -593,27 +613,44 @@ require("lazy").setup({
                   end
                 end,
               })
-            end, { desc = "References" })
+            end, "References")
 
-            vim.keymap.set("n", "K", function()
+            map("n", "K", function()
               vim.lsp.buf.hover({ buf = ev.buf })
-            end, { desc = "Hover" })
+            end, "Hover")
 
-            vim.keymap.set("i", "<C-k>", function()
+            map("i", "<C-k>", function()
               vim.lsp.buf.signature_help({ buf = ev.buf })
-            end, { desc = "Signature help" })
+            end, "Signature help")
 
-            vim.keymap.set("n", "<leader>ca", function()
+            map("n", "<leader>ca", function()
               vim.lsp.buf.code_action({ buf = ev.buf })
-            end, { desc = "Code action" })
+            end, "Code action")
 
-            vim.keymap.set("n", "<leader>cr", function()
+            map("n", "<leader>cr", function()
               vim.lsp.buf.rename(nil, { buf = ev.buf })
-            end, { desc = "Rename" })
+            end, "Rename")
 
-            vim.keymap.set("n", "<leader>cR", function()
-              vim.lsp.buf.rename(nil, { buf = ev.buf })
-            end, { desc = "Rename" })
+            local ts_source_action = function(kind)
+              vim.lsp.buf.code_action({
+                buf = ev.buf,
+                apply = true,
+                context = {
+                  only = { kind },
+                  diagnostics = {},
+                },
+              })
+            end
+
+            if client and client.name == "vtsls" then
+              map("n", "<leader>cu", function()
+                ts_source_action("source.removeUnused.ts")
+              end, "TypeScript: remove unused")
+
+              map("n", "<leader>cm", function()
+                ts_source_action("source.addMissingImports.ts")
+              end, "TypeScript: add missing imports")
+            end
           end,
         })
       end,
