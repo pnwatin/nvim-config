@@ -60,9 +60,6 @@ vim.g.loaded_netrwPlugin = 1
 vim.keymap.set("n", "<leader>d", ":bd<CR>", { noremap = true, silent = true, desc = "Delete buffer" })
 vim.keymap.set("n", "<leader>D", ":bd!<CR>", { noremap = true, silent = true, desc = "Delete buffer unchecked" })
 
-vim.keymap.set("n", "<leader>d", ":bd<CR>", { noremap = true, silent = true, desc = "Delete buffer" })
-vim.keymap.set("n", "<leader>D", ":bd!<CR>", { noremap = true, silent = true, desc = "Delete buffer unchecked" })
-
 -- WINDOWS
 vim.keymap.set("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
 vim.keymap.set("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
@@ -136,14 +133,27 @@ end, { desc = "Open lazygit" })
 
 -- AUTOCOMMANDS
 
+local augroup = function(name)
+  return vim.api.nvim_create_augroup("pnwatin_" .. name, { clear = true })
+end
+
 -- auto create dir when saving a file, in case some intermediate directory does not exist
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  group = augroup("create_missing_dirs"),
   callback = function(event)
     if event.match:match("^%w%w+:[\\/][\\/]") then
       return
     end
     local file = vim.uv.fs_realpath(event.match) or event.match
     vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
+  end,
+})
+
+-- highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+  group = augroup("highlight_yank"),
+  callback = function()
+    (vim.hl or vim.highlight).on_yank()
   end,
 })
 
@@ -234,7 +244,7 @@ require("lazy").setup({
         {
           "<leader>W",
           function()
-            require("fff").live_grep({ grep = { modes = { "plain " } }, query = vim.fn.expand("<cWORD>") })
+            require("fff").live_grep({ grep = { modes = { "plain" } }, query = vim.fn.expand("<cWORD>") })
           end,
           desc = "Search current [W]ord",
         },
@@ -455,7 +465,7 @@ require("lazy").setup({
         end
 
         vim.api.nvim_create_autocmd("FileType", {
-          group = vim.api.nvim_create_augroup("custom_treesitter_features", { clear = true }),
+          group = augroup("treesitter_features"),
           callback = function(ev)
             local ft = ev.match
             local lang = vim.treesitter.language.get_lang(ft)
@@ -466,7 +476,7 @@ require("lazy").setup({
             if vim.tbl_get(opts, "highlight", "enable") ~= false and has_query(lang, "highlights") then
               pcall(vim.treesitter.start, ev.buf, lang)
             end
-            --
+
             if vim.tbl_get(opts, "indent", "enable") ~= false and has_query(lang, "indents") then
               vim.bo[ev.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
             end
@@ -596,6 +606,7 @@ require("lazy").setup({
         vim.lsp.enable("vtsls")
 
         vim.api.nvim_create_autocmd("LspAttach", {
+          group = augroup("lsp_keymaps"),
           callback = function(ev)
             local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
@@ -718,7 +729,7 @@ require("lazy").setup({
     },
     {
       "Saecki/crates.nvim",
-      event = { "BufRead Cargo.toml" },
+      event = { "BufRead Cargo.toml", "BufNewFile Cargo.toml" },
       opts = {
         completion = {
           crates = {
@@ -736,16 +747,17 @@ require("lazy").setup({
         local crates = require("crates")
         crates.setup(_opts)
 
-        vim.api.nvim_create_autocmd("BufEnter", {
+        vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
           pattern = "Cargo.toml",
+          group = augroup("crates_keymaps"),
           callback = function(args)
             local buf = args.buf
             local opts = { buf = buf, silent = true }
 
-            vim.keymap.set("n", "<leader>ccU", crates.upgrade_crate, opts)
-            vim.keymap.set("n", "<leader>ccA", crates.upgrade_all_crates, opts)
             vim.keymap.set("n", "<leader>ccu", crates.update_crate, opts)
             vim.keymap.set("n", "<leader>cca", crates.update_all_crates, opts)
+            vim.keymap.set("n", "<leader>ccU", crates.upgrade_crate, opts)
+            vim.keymap.set("n", "<leader>ccA", crates.upgrade_all_crates, opts)
           end,
         })
       end,
