@@ -677,6 +677,23 @@ require("lazy").setup({
           hover = true,
         },
       },
+      config = function(_, _opts)
+        local crates = require("crates")
+        crates.setup(_opts)
+
+        vim.api.nvim_create_autocmd("BufEnter", {
+          pattern = "Cargo.toml",
+          callback = function(args)
+            local buf = args.buf
+            local opts = { buf = buf, silent = true }
+
+            vim.keymap.set("n", "<leader>ccU", crates.upgrade_crate, opts)
+            vim.keymap.set("n", "<leader>ccA", crates.upgrade_all_crates, opts)
+            vim.keymap.set("n", "<leader>ccu", crates.update_crate, opts)
+            vim.keymap.set("n", "<leader>cca", crates.update_all_crates, opts)
+          end,
+        })
+      end,
     },
     -- Lua auto-configure TODO: remove
     {
