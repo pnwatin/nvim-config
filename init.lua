@@ -791,6 +791,7 @@ require("lazy").setup({
             "<leader>H",
             function()
               require("harpoon"):list():add()
+              vim.notify("Added file to harpoon", vim.log.levels.INFO)
             end,
             desc = "Harpoon File",
           },
