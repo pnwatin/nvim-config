@@ -197,12 +197,7 @@ require("lazy").setup({
             information = { "undercurl" },
           },
         },
-        integrations = {
-          mason = true,
-          blink_cmp = true,
-          fidget = true,
-          treesitter = true,
-        },
+        auto_integrations = true,
       },
       config = function(_, opts)
         require("catppuccin").setup(opts)
