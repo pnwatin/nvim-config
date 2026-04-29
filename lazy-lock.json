@@ -1,5 +1,5 @@
 {
-  "SchemaStore.nvim": { "branch": "main", "commit": "527b18ff9d4353510f5eccbae27766688cabdb62" },
+  "SchemaStore.nvim": { "branch": "main", "commit": "20d4e9970798123e6197acb1c85c4b1e897efd29" },
   "blink.cmp": { "branch": "main", "commit": "78336bc89ee5365633bcf754d93df01678b5c08f" },
   "catppuccin": { "branch": "main", "commit": "426dbebe06b5c69fd846ceb17b42e12f890aedf1" },
   "conform.nvim": { "branch": "master", "commit": "dca1a190aa85f9065979ef35802fb77131911106" },
@@ -13,10 +13,10 @@
   "mini.icons": { "branch": "main", "commit": "bac6317300e205335df425296570d84322730067" },
   "mini.pairs": { "branch": "main", "commit": "42387c7fe68fc0b6e95eaf37f1bb76e7bffaa0d9" },
   "mini.surround": { "branch": "main", "commit": "2715e04bea3ec9244f15b421dc5b18c0fe326210" },
-  "nvim-lspconfig": { "branch": "master", "commit": "eeef061d58d759b5419c1e20c4b3a5bc3154f871" },
+  "nvim-lspconfig": { "branch": "master", "commit": "b66a8ce16b141cd26576267e2d1f371d658b7bb7" },
   "nvim-treesitter": { "branch": "main", "commit": "4916d6592ede8c07973490d9322f187e07dfefac" },
   "nvim-ts-autotag": { "branch": "main", "commit": "88c1453db4ba7dd24131086fe51fdf74e587d275" },
   "oil.nvim": { "branch": "master", "commit": "0fcc83805ad11cf714a949c98c605ed717e0b83e" },
   "plenary.nvim": { "branch": "master", "commit": "74b06c6c75e4eeb3108ec01852001636d85a932b" },
-  "rustaceanvim": { "branch": "main", "commit": "135f40f1243cf73963d34cf4694f8587cc07bee9" }
+  "rustaceanvim": { "branch": "main", "commit": "a5cb886005eaea18ada94cfc6f3a349c298274f7" }
 }
