@@ -739,6 +739,48 @@ require("lazy").setup({
         })
       end,
     },
+    -- GIT
+    {
+      "lewis6991/gitsigns.nvim",
+      event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+      opts = {
+        signs = {
+          add = { text = "▎" },
+          change = { text = "▎" },
+          delete = { text = "" },
+          topdelete = { text = "" },
+          changedelete = { text = "▎" },
+          untracked = { text = "▎" },
+        },
+        signs_staged = {
+          add = { text = "▎" },
+          change = { text = "▎" },
+          delete = { text = "" },
+          topdelete = { text = "" },
+          changedelete = { text = "▎" },
+        },
+        current_line_blame = true,
+        on_attach = function(buf)
+          local gs = package.loaded.gitsigns
+
+          local map = bufmap({ buf = buf })
+
+          map("n", "]h", function()
+            gs.nav_hunk("next")
+          end)
+          map("n", "[h", function()
+            gs.nav_hunk("prev")
+          end)
+          map({ "n", "x" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
+          map({ "n", "x" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
+          map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
+          map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
+          map("n", "<leader>ghb", gs.blame_line, "Blame Line")
+          map("n", "<leader>ghB", gs.blame, "Blame Buffer")
+          map("n", "<leader>ghp", gs.preview_hunk, "Preview hunk")
+        end,
+      },
+    },
     -- Lua auto-configure TODO: remove
     {
       "folke/lazydev.nvim",
