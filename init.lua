@@ -354,6 +354,8 @@ require("lazy").setup({
 
           "json-lsp",
 
+          "taplo",
+
           "lua-language-server",
           "stylua",
 
@@ -546,6 +548,7 @@ require("lazy").setup({
         vim.lsp.enable("prismals")
         vim.lsp.enable("tailwindcss")
         vim.lsp.enable("biome")
+        vim.lsp.enable("taplo")
         vim.lsp.config("jsonls", {
           -- lazy-load schemastore when needed
           before_init = function(_, new_config)
