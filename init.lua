@@ -87,6 +87,25 @@ vim.keymap.set("n", "<leader>cp", function()
   vim.notify("Copied file path: " .. relpath, vim.log.levels.INFO)
 end, { noremap = true, desc = "Copy buffer path (cwd)" })
 
+-- DIAGNOSTICS
+local diagnostic_goto = function(next, severity)
+  return function()
+    local diag = next and vim.diagnostic.get_next({ severity = severity })
+      or vim.diagnostic.get_prev({ severity = severity })
+    if not diag then
+      vim.notify("No more valid diagnostics to move to", vim.log.levels.WARN)
+      return
+    end
+    vim.diagnostic.jump({ diagnostic = diag, count = (diag == nil and 1) or nil })
+  end
+end
+vim.keymap.set("n", "]d", diagnostic_goto(true), { desc = "Next Diagnostic" })
+vim.keymap.set("n", "[d", diagnostic_goto(false), { desc = "Prev Diagnostic" })
+vim.keymap.set("n", "]e", diagnostic_goto(true, vim.diagnostic.severity.ERROR), { desc = "Next Error" })
+vim.keymap.set("n", "[e", diagnostic_goto(false, vim.diagnostic.severity.ERROR), { desc = "Prev Error" })
+vim.keymap.set("n", "]w", diagnostic_goto(true, vim.diagnostic.severity.WARN), { desc = "Next Warning" })
+vim.keymap.set("n", "[w", diagnostic_goto(false, vim.diagnostic.severity.WARN), { desc = "Prev Warning" })
+
 -- REMAPS
 vim.keymap.set({ "i", "n", "s" }, "<Esc>", "<Esc>:noh<CR>", { noremap = true, silent = true })
 
