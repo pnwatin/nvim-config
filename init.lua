@@ -719,6 +719,7 @@ require("lazy").setup({
                   "venv",
                   ".venv",
                 },
+                watcher = "client",
               },
             },
           },
