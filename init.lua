@@ -525,6 +525,12 @@ require("lazy").setup({
       end,
     },
     {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      branch = "main",
+      event = "VeryLazy",
+      opts = {},
+    },
+    {
       "windwp/nvim-ts-autotag",
       event = { "BufReadPost", "BufNewFile", "BufWritePre" },
       opts = {
