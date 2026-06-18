@@ -235,7 +235,7 @@ require("lazy").setup({
           show_scores = false,
         },
         prompt = "> ",
-        prompt_vim_mode = false,
+        prompt_vim_mode = true,
         grep = { modes = { "plain", "fuzzy", "regex" } },
         layout = { width = 0.99, height = 0.5, anchor = "bottom_left" },
       },
