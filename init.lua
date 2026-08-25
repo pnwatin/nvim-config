@@ -228,7 +228,9 @@ require("lazy").setup({
     -- FFF
     {
       "dmtrKovalenko/fff.nvim",
-      build = "cargo build --release -p fff-nvim --no-default-features --features zlob",
+      build = function()
+        require("fff.download").download_or_build_binary()
+      end,
       opts = {
         debug = {
           enabled = false,
