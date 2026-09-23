@@ -314,6 +314,12 @@ require("lazy").setup({
       "saghen/blink.cmp",
       version = "1.*",
       build = "cargo build --release",
+      dependencies = {
+        {
+          "L3MON4D3/LuaSnip",
+          version = "v2.*",
+        },
+      },
       opts = {
         appearance = {
           use_nvim_cmp_as_default = false,
@@ -343,6 +349,7 @@ require("lazy").setup({
         sources = {
           default = { "lsp", "path", "snippets", "buffer" },
         },
+        snippets = { preset = "luasnip" },
         cmdline = { enabled = false },
         keymap = {
           preset = "none",
